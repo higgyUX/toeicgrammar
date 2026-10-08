@@ -1,0 +1,1500 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>TOEIC Grammar Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --felt:#2d4b3c; --felt-text:#f2e9d0; --felt-muted:#c6d2bd;
+  --paper:#f3ebd5; --paper-2:#e8dfc3; --ink:#1e2b23; --muted:#4f5b49; --line:#c9bc97;
+  --mustard:#d4a124; --mustard-ink:#6f5009; --rust:#a3431d; --ok:#256a41;
+  --ok-bg:#dbe9d4; --bad-bg:#f1d7c8; --stitch:#b9a46a;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'Space Mono',ui-monospace,Menlo,Consolas,monospace;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --felt:#14231b; --felt-text:#efe6cc; --felt-muted:#a9b7a1;
+    --paper:#203227; --paper-2:#293c30; --ink:#efe6cc; --muted:#b7c1ad; --line:#40594a;
+    --mustard:#e2b23a; --mustard-ink:#e2b23a; --rust:#f1966e; --ok:#8fd3a8;
+    --ok-bg:#254432; --bad-bg:#4a2b22; --stitch:#7d6a34;
+  }
+}
+:root[data-theme="dark"]{
+  --felt:#14231b; --felt-text:#efe6cc; --felt-muted:#a9b7a1;
+  --paper:#203227; --paper-2:#293c30; --ink:#efe6cc; --muted:#b7c1ad; --line:#40594a;
+  --mustard:#e2b23a; --mustard-ink:#e2b23a; --rust:#f1966e; --ok:#8fd3a8;
+  --ok-bg:#254432; --bad-bg:#4a2b22; --stitch:#7d6a34;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{
+  margin:0;background-color:var(--felt);
+  background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1.3px);
+  background-size:5px 5px;
+  color:var(--felt-text);font:17px/1.6 var(--sans);-webkit-text-size-adjust:100%;
+}
+[hidden]{display:none !important}
+.wrap{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* page header */
+.top{padding-top:34px;padding-bottom:22px}
+h1{font:700 clamp(2rem,6vw,3.1rem)/1.08 var(--serif);margin:0 0 12px;letter-spacing:-.01em}
+.lead{max-width:60ch;margin:0 0 20px;color:var(--felt-muted);font-size:1.05rem}
+.scorebar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;background:rgba(0,0,0,.22);border-radius:6px;padding:12px 16px}
+.scorebar .big{font:700 2.1rem/1 var(--serif);color:var(--mustard)}
+.scorebar .txt{flex:1 1 220px;font-size:.95rem}
+
+/* sticky topic bar */
+.chips{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--felt);border-bottom:1px solid rgba(255,255,255,.14)}
+.chips .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:10px;padding-bottom:10px}
+.chip{flex:0 0 auto;display:inline-flex;gap:8px;align-items:center;padding:7px 13px;border:1.5px solid rgba(242,233,208,.35);border-radius:999px;color:var(--felt-text);text-decoration:none;font-size:.9rem;font-weight:500;white-space:nowrap}
+.chip:hover{border-color:var(--mustard)}
+.chip:focus-visible{outline:3px solid var(--mustard);outline-offset:2px}
+.cnt{font:400 .8rem var(--mono);color:var(--mustard)}
+
+/* sheets */
+.sheet{position:relative;background:var(--paper);color:var(--ink);border-radius:6px;padding:clamp(24px,4.5vw,42px);margin:28px 0;box-shadow:0 2px 0 rgba(0,0,0,.28),0 16px 30px -16px rgba(0,0,0,.55)}
+.sheet::before{content:"";position:absolute;inset:8px;border:1.5px dashed var(--stitch);border-radius:3px;pointer-events:none}
+.sheet-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:6px}
+.num{flex:0 0 auto;width:52px;height:52px;border-radius:50%;background:var(--mustard);color:#1e2b23;font:700 1.7rem/1 var(--serif);display:grid;place-items:center}
+h2{font:600 clamp(1.6rem,4vw,2.2rem)/1.15 var(--serif);margin:0 0 6px}
+.what{margin:0;color:var(--muted);max-width:62ch}
+h3{font:600 1.25rem/1.25 var(--serif);margin:1.7rem 0 .5rem}
+.sheet p{margin:.6rem 0}
+.sheet b{font-weight:700;color:var(--rust)}
+.sheet strong{font-weight:700}
+.sheet em{font-style:italic}
+
+.tablewrap{overflow-x:auto;margin:.8rem 0}
+table{border-collapse:collapse;width:100%;min-width:540px;font-size:.95rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--serif);font-weight:600;background:var(--paper-2)}
+
+.rule{background:var(--paper-2);border-left:5px solid var(--mustard);padding:12px 16px;border-radius:0 4px 4px 0;margin:.9rem 0}
+.rule p{margin:.3rem 0}
+.formula{font:700 .95rem/1.5 var(--mono)}
+.rule ul{margin:.3rem 0 0;padding-left:1.2rem}
+.rule li{margin:.25rem 0}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:.8rem 0}
+.col{background:var(--paper-2);padding:12px 16px;border-radius:4px}
+.col h4{font:600 1.05rem var(--serif);margin:0 0 .4rem}
+.col ul{margin:0;padding-left:1.1rem}
+.col li{margin:.4rem 0}
+
+.fixes{list-style:none;padding:0;margin:.7rem 0;display:grid;gap:10px}
+.fixes li{background:var(--paper-2);padding:10px 14px;border-radius:4px}
+.fixes .bad,.fixes .good,.fixes .why{display:block}
+.fixes .bad{color:var(--ink)}
+.fixes .bad .mk{color:var(--rust);font-weight:700;margin-right:.5rem}
+.fixes .bad s{text-decoration-color:var(--rust);text-decoration-thickness:2px}
+.fixes .good .mk{color:var(--ok);font-weight:700;margin-right:.5rem}
+.fixes .why{color:var(--muted);font-size:.92rem;margin-top:4px}
+
+/* quiz */
+.quiz{margin-top:2.4rem;padding-top:1.3rem;border-top:3px solid var(--mustard)}
+.quiz h3{margin-top:0}
+.q{padding:20px 0;border-bottom:1px dashed var(--line)}
+.q:last-of-type{border-bottom:0}
+.qtext{font-size:1.07rem;font-weight:500;margin:0 0 .25rem;line-height:1.7}
+.qno{font:700 1.05rem var(--serif);color:var(--rust);margin-right:.5rem}
+.instr{font-size:.9rem;color:var(--muted);margin:0 0 .7rem}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;min-height:46px;padding:10px 14px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:4px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--mustard);background:var(--paper-2)}
+.opt:focus-visible,.btn:focus-visible,.seg:focus-visible,.blank:focus-visible,select:focus-visible{outline:3px solid var(--mustard);outline-offset:2px}
+.opt:disabled{cursor:default;color:var(--ink)}
+.opt .ltr{flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ink);font:700 .8rem var(--mono);display:grid;place-items:center;margin-top:1px}
+.opt.correct{border-color:var(--ok);background:var(--ok-bg)}
+.opt.correct .ltr{background:var(--ok);border-color:var(--ok);color:var(--paper)}
+.opt.wrong{border-color:var(--rust);background:var(--bad-bg)}
+.opt.wrong .ltr{background:var(--rust);border-color:var(--rust);color:var(--paper)}
+.opts.tfrow{grid-template-columns:1fr 1fr}
+.opt.tf{justify-content:center;font-weight:600}
+
+.blank{font:inherit;width:9.5em;max-width:100%;border:0;border-bottom:2px solid var(--ink);background:var(--paper-2);color:var(--ink);padding:2px 8px;margin:0 4px;border-radius:3px 3px 0 0}
+.blank:disabled{opacity:1;color:var(--ink)}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.btn{font:inherit;font-weight:600;background:var(--ink);color:var(--paper);border:1.5px solid var(--ink);border-radius:4px;padding:8px 16px;min-height:42px;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink)}
+.btn:disabled{opacity:.5;cursor:default}
+.note{color:var(--rust);font-size:.92rem;margin:.5rem 0 0;min-height:1em}
+
+.sent{font-size:1.12rem;line-height:2.3;margin:.3rem 0}
+.seg{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:2.5px solid var(--mustard);padding:2px 5px;margin:0 1px;cursor:pointer;border-radius:3px 3px 0 0}
+.seg:hover:not(:disabled){background:var(--paper-2)}
+.seg sup{font:700 .65rem var(--mono);margin-right:4px;color:var(--mustard-ink)}
+.seg:disabled{cursor:default}
+.seg.found{background:var(--ok-bg);border-color:var(--ok)}
+.seg.wrong{background:var(--bad-bg);border-color:var(--rust)}
+
+.mlist{display:grid;gap:2px;margin-top:.4rem}
+.mrow{display:grid;grid-template-columns:1fr minmax(160px,230px);gap:6px 14px;align-items:center;padding:8px 0;border-bottom:1px dotted var(--line)}
+.mrow:last-child{border-bottom:0}
+select{font:inherit;padding:8px 10px;border:1.5px solid var(--ink);border-radius:4px;background:var(--paper);color:var(--ink);min-height:42px;width:100%}
+select:disabled{opacity:1;color:var(--ink)}
+select.correct{border-color:var(--ok);background:var(--ok-bg)}
+select.wrong{border-color:var(--rust);background:var(--bad-bg)}
+.mres{grid-column:1/-1;font-size:.93rem;padding-left:1.5em;position:relative;color:var(--ink)}
+.mres .mk{position:absolute;left:0;font-weight:700}
+.mres.y .mk{color:var(--ok)} .mres.n .mk{color:var(--rust)}
+
+.fb{margin-top:12px;padding:12px 14px;border-radius:4px;border:1.5px solid var(--line);background:var(--paper-2);font-size:.97rem}
+.fb.good{border-color:var(--ok)} .fb.bad{border-color:var(--rust)}
+.fb p{margin:0 0 .4rem}
+.fb .res{font:700 1.08rem var(--serif)}
+.fb.good .res{color:var(--ok)} .fb.bad .res{color:var(--rust)}
+.fb ul{list-style:none;padding:0;margin:.4rem 0 0;display:grid;gap:9px}
+.fb li{padding-left:1.6em;position:relative}
+.fb li .mk{position:absolute;left:0;font-weight:700}
+.fb li.y .mk{color:var(--ok)} .fb li.n .mk{color:var(--rust)}
+
+.results{margin-top:18px;padding:16px 18px;border:2px solid var(--mustard);border-radius:6px;background:var(--paper-2)}
+.results h4{font:700 1.25rem var(--serif);margin:0 0 .4rem}
+.results p{margin:.3rem 0}
+.results ul{list-style:none;padding:0;margin:.7rem 0 0;display:grid;gap:6px}
+.results li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 14px;padding-bottom:6px;border-bottom:1px dotted var(--line)}
+.results li:last-child{border-bottom:0}
+.results a{color:var(--rust);font-weight:600}
+.results .full{color:var(--ok);font-weight:600}
+.qfoot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding-top:14px;border-top:2px solid var(--line)}
+.secscore{font:700 1.05rem var(--serif)}
+
+footer{padding:10px 0 60px;color:var(--felt-muted);font-size:.88rem}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  .num{width:44px;height:44px;font-size:1.4rem}
+  .opts.tfrow{grid-template-columns:1fr}
+  .mrow{grid-template-columns:1fr}
+  .sheet::before{inset:6px}
+}
+</style>
+</head>
+<body>
+
+<header class="top wrap">
+  <h1>TOEIC grammar, one topic at a time</h1>
+  <p class="lead">Seven grammar topics that appear most often on the TOEIC. Read the short lesson, then test yourself, and finish with a mixed final test. When an answer is wrong, the page tells you exactly why it is not correct English.</p>
+  <div class="scorebar" aria-live="polite">
+    <span class="big" id="scCor">0</span>
+    <span class="txt">correct on the first try. You have answered <span id="scAns">0</span> of <span id="scAll">70</span> questions.</span>
+    <button class="btn alt" id="resetAll" type="button" style="color:var(--felt-text);border-color:rgba(242,233,208,.5)">Reset all quizzes</button>
+  </div>
+</header>
+
+<nav class="chips" aria-label="Grammar topics">
+  <div class="wrap">
+    <a class="chip" href="#s1">Verb tenses <span class="cnt" data-cnt="s1">0/7</span></a>
+    <a class="chip" href="#s2">Subject and verb <span class="cnt" data-cnt="s2">0/7</span></a>
+    <a class="chip" href="#s3">Gerunds and infinitives <span class="cnt" data-cnt="s3">0/7</span></a>
+    <a class="chip" href="#s4">Modal verbs <span class="cnt" data-cnt="s4">0/7</span></a>
+    <a class="chip" href="#s5">If sentences <span class="cnt" data-cnt="s5">0/7</span></a>
+    <a class="chip" href="#s6">Passive voice <span class="cnt" data-cnt="s6">0/7</span></a>
+    <a class="chip" href="#s7">Word forms <span class="cnt" data-cnt="s7">0/7</span></a>
+    <a class="chip" href="#s8">Final test <span class="cnt" data-cnt="s8">0/21</span></a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- 1 TENSES -->
+<section class="sheet" id="s1" aria-labelledby="h-s1">
+  <div class="sheet-head"><span class="num" aria-hidden="true">1</span>
+    <div><h2 id="h-s1">Verb tenses</h2>
+    <p class="what">A tense tells us <em>when</em> something happens. On the TOEIC, the time words in the sentence tell you which tense to choose.</p></div></div>
+
+  <h3>The eight tenses you need most</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Tense</th><th>Use it for</th><th>Example</th><th>Time clues</th></tr></thead>
+    <tbody>
+      <tr><td>Present simple</td><td>habits, facts</td><td>She <b>works</b> in Tokyo.</td><td>every day, usually, always</td></tr>
+      <tr><td>Present continuous</td><td>happening now</td><td>She <b>is working</b> now.</td><td>now, at the moment, currently</td></tr>
+      <tr><td>Present perfect</td><td>started in the past and connected to now</td><td>She <b>has worked</b> here for three years.</td><td>since, for, already, yet, so far</td></tr>
+      <tr><td>Past simple</td><td>a finished action</td><td>She <b>worked</b> late yesterday.</td><td>yesterday, last week, in 2020, two days ago</td></tr>
+      <tr><td>Past continuous</td><td>in progress at one moment in the past</td><td>She <b>was working</b> at 9 p.m.</td><td>at 9 p.m. yesterday, while</td></tr>
+      <tr><td>Past perfect</td><td>happened before another past action</td><td>She <b>had left</b> before I arrived.</td><td>before, by the time</td></tr>
+      <tr><td>Future simple</td><td>plans, decisions, predictions</td><td>She <b>will work</b> tomorrow.</td><td>tomorrow, next week</td></tr>
+      <tr><td>Future perfect</td><td>finished before a future time</td><td>She <b>will have finished</b> by 5 p.m.</td><td>by + a future time</td></tr>
+    </tbody></table></div>
+
+  <h3>Four rules that win points</h3>
+  <div class="rule">
+    <p class="formula">since + starting point, for + length of time → present perfect</p>
+    <p>I <b>have lived</b> here <b>since</b> 2019. &nbsp; He <b>has studied</b> English <b>for</b> two years.</p>
+  </div>
+  <div class="rule">
+    <p class="formula">finished time word → past simple</p>
+    <p>Words like <em>yesterday, last week, in 2019, two days ago</em> point to the past simple. We saw him <b>yesterday</b>. The office opened <b>in 2019</b>.</p>
+  </div>
+  <div class="rule">
+    <p class="formula">earlier past action → past perfect (had + past participle)</p>
+    <p>When I arrived, the meeting <b>had started</b>. (First the meeting started, then I arrived.)</p>
+  </div>
+  <div class="rule">
+    <p class="formula">when / before / after / as soon as → present simple, even for the future</p>
+    <p>I will call you when I <b>arrive</b>. (Not: when I will arrive.)</p>
+  </div>
+
+  <h3>Common mistakes</h3>
+  <ul class="fixes">
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>She works here since 2015.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>She has worked here since 2015.</span>
+        <span class="why">"Since 2015" starts in the past and continues now. That needs present perfect.</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>I have seen him yesterday.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>I saw him yesterday.</span>
+        <span class="why">"Yesterday" is a finished time. Present perfect cannot be used with a finished time.</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>He will call you when he will arrive.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>He will call you when he arrives.</span>
+        <span class="why">After "when", we use present simple even when the meaning is future.</span></li>
+  </ul>
+
+  <div class="quiz" data-quiz="s1"></div>
+</section>
+
+<!-- 2 AGREEMENT -->
+<section class="sheet" id="s2" aria-labelledby="h-s2">
+  <div class="sheet-head"><span class="num" aria-hidden="true">2</span>
+    <div><h2 id="h-s2">Subject and verb agreement</h2>
+    <p class="what">A singular subject needs a singular verb. A plural subject needs a plural verb. This is one of the most tested points in TOEIC Part 5.</p></div></div>
+
+  <div class="rule">
+    <p class="formula">Find the real subject. Ignore the words between the subject and the verb.</p>
+    <p>The <b>list</b> of new products <b>is</b> ready. (The subject is "list", not "products".)</p>
+  </div>
+
+  <div class="two">
+    <div class="col"><h4>Takes a singular verb</h4>
+      <ul>
+        <li>Uncountable nouns: information, money, advice, news, furniture. The <b>news is</b> good.</li>
+        <li>Everyone, someone, nobody, each, every, either, neither. <b>Each</b> student <b>has</b> a book.</li>
+        <li>A gerund (V-ing) as the subject. <b>Reading is</b> fun.</li>
+        <li>An amount of money, time or distance. <b>Ten dollars is</b> enough.</li>
+        <li>Subjects ending in -s that are one thing: physics, measles. <b>Physics is</b> hard.</li>
+        <li>A pair of + plural noun. A <b>pair</b> of shoes <b>is</b> on sale.</li>
+      </ul></div>
+    <div class="col"><h4>Takes a plural verb</h4>
+      <ul>
+        <li>Plural nouns. The <b>books are</b> here.</li>
+        <li>Both, many, several, few. <b>Both</b> managers <b>are</b> late.</li>
+        <li>Two subjects joined by <em>and</em>. <b>Tom and Anna are</b> ready.</li>
+        <li>Pair nouns: glasses, pants, scissors. My <b>glasses are</b> broken.</li>
+        <li>The + adjective for a group: the rich, the poor. <b>The poor need</b> help.</li>
+      </ul></div>
+  </div>
+
+  <h3>Tricky patterns</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Pattern</th><th>Rule</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Either… or / Neither… nor</td><td>The verb agrees with the <strong>second</strong> noun.</td><td>Neither the boss nor the <b>workers are</b> here.</td></tr>
+      <tr><td>A, along with B / as well as</td><td>The verb agrees with the <strong>first</strong> noun.</td><td>The <b>manager</b>, along with his staff, <b>is</b> here.</td></tr>
+      <tr><td>A number of + plural noun</td><td>Plural verb. It means "many".</td><td>A number of <b>people are</b> waiting.</td></tr>
+      <tr><td>The number of + plural noun</td><td>Singular verb. It means one number.</td><td>The number of <b>people is</b> small.</td></tr>
+      <tr><td>Most of / some of / all of / half of + noun</td><td>The verb agrees with the noun after "of".</td><td>Most of the <b>water is</b> gone. Most of the <b>students are</b> here.</td></tr>
+      <tr><td>There is / There are</td><td>The verb agrees with the noun after it.</td><td>There <b>is</b> a problem. There <b>are</b> two problems.</td></tr>
+      <tr><td>Team, family, staff</td><td>Singular when the group acts as one unit. Plural only when members act as individuals (less common).</td><td>The <b>team is</b> ready.</td></tr>
+    </tbody></table></div>
+
+  <h3>Common mistakes</h3>
+  <ul class="fixes">
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>The list of items are long.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>The list of items is long.</span>
+        <span class="why">The subject is "list" (singular). "Items" is only part of the phrase "of items".</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>Neither the boss nor the workers is here.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>Neither the boss nor the workers are here.</span>
+        <span class="why">With neither… nor, the verb matches the closest noun: "workers" (plural).</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>The number of applicants are growing.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>The number of applicants is growing.</span>
+        <span class="why">"The number of" is one number, so the verb is singular.</span></li>
+  </ul>
+
+  <div class="quiz" data-quiz="s2"></div>
+</section>
+
+<!-- 3 GERUNDS AND INFINITIVES -->
+<section class="sheet" id="s3" aria-labelledby="h-s3">
+  <div class="sheet-head"><span class="num" aria-hidden="true">3</span>
+    <div><h2 id="h-s3">Gerunds and infinitives</h2>
+    <p class="what">A gerund is a verb with <em>-ing</em> (working). An infinitive is <em>to</em> + verb (to work). Each verb in English chooses one pattern, and you must learn which.</p></div></div>
+
+  <div class="two">
+    <div class="col"><h4>Verb + V-ing</h4>
+      <p class="formula">enjoy, avoid, consider, suggest, mind, keep, finish</p>
+      <ul><li>She avoided <b>answering</b> the email.</li><li>We finished <b>writing</b> the report.</li></ul></div>
+    <div class="col"><h4>Verb + to + verb</h4>
+      <p class="formula">decide, hope, plan, want, offer, agree, need, expect</p>
+      <ul><li>He decided <b>to leave</b> early.</li><li>They plan <b>to open</b> a new shop.</li></ul></div>
+    <div class="col"><h4>Verb + person + to + verb</h4>
+      <p class="formula">encourage, allow, ask, tell, remind, invite</p>
+      <ul><li>The boss allowed us <b>to leave</b> early.</li><li>She reminded him <b>to call</b>.</li></ul></div>
+    <div class="col"><h4>Preposition + V-ing</h4>
+      <p class="formula">for, in, at, about, of, by + V-ing</p>
+      <ul><li>Thank you for <b>helping</b> me.</li><li>She is good at <b>solving</b> problems.</li></ul></div>
+  </div>
+
+  <h3>Verbs that change meaning</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Verb</th><th>+ V-ing (usually the past)</th><th>+ to + verb (usually the future)</th></tr></thead>
+    <tbody>
+      <tr><td>remember</td><td>I remember <b>locking</b> the door. (I recall doing it.)</td><td>Remember <b>to lock</b> the door. (Do not forget.)</td></tr>
+      <tr><td>forget</td><td>I forgot <b>meeting</b> her before. (I did not recall the past event.)</td><td>He forgot <b>to send</b> the email. (He did not do it.)</td></tr>
+      <tr><td>stop</td><td>She stopped <b>working</b> there. (She quit.)</td><td>She stopped <b>to answer</b> the phone. (She paused in order to answer.)</td></tr>
+      <tr><td>try</td><td>Try <b>restarting</b> your laptop. (Do it as an experiment.)</td><td>Try <b>to arrive</b> early. (Make an effort.)</td></tr>
+      <tr><td>regret</td><td>I regret <b>saying</b> that. (I am sorry I said it.)</td><td>We regret <b>to inform</b> you… (formal bad news)</td></tr>
+    </tbody></table></div>
+
+  <h3>Common mistakes</h3>
+  <ul class="fixes">
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>She avoided to answer the email.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>She avoided answering the email.</span>
+        <span class="why">"Avoid" is always followed by V-ing.</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>He decided leaving early.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>He decided to leave early.</span>
+        <span class="why">"Decide" is followed by to + verb.</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>The manager allowed us leaving early.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>The manager allowed us to leave early.</span>
+        <span class="why">"Allow + person" is followed by to + verb.</span></li>
+  </ul>
+
+  <div class="quiz" data-quiz="s3"></div>
+</section>
+
+<!-- 4 MODALS -->
+<section class="sheet" id="s4" aria-labelledby="h-s4">
+  <div class="sheet-head"><span class="num" aria-hidden="true">4</span>
+    <div><h2 id="h-s4">Modal verbs</h2>
+    <p class="what">Modal verbs add a feeling to the sentence: ability, advice, duty, possibility or permission. TOEIC questions often test how strong the feeling is.</p></div></div>
+
+  <div class="rule">
+    <p class="formula">modal + base verb</p>
+    <p>No <em>to</em>, no <em>-s</em>, no <em>-ing</em> after a modal. She <b>can swim</b>. He <b>should apply</b>. They <b>must leave</b>.</p>
+  </div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>Modal</th><th>Use it for</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>can / could</td><td>ability, possibility</td><td>She <b>can</b> solve the problem easily.</td></tr>
+      <tr><td>may / might</td><td>possibility. <em>May</em> can also mean permission.</td><td>It <b>might</b> rain later. You <b>may</b> leave early.</td></tr>
+      <tr><td>must / have to</td><td>strong obligation (a rule)</td><td>You <b>must</b> submit the report by 5 p.m.</td></tr>
+      <tr><td>should / ought to</td><td>advice</td><td>You <b>should</b> check your email.</td></tr>
+      <tr><td>will / would</td><td>future; polite request</td><td>I <b>will</b> join the call. <b>Would</b> you help me?</td></tr>
+    </tbody></table></div>
+
+  <div class="rule">
+    <p class="formula">might (weakest) → could → should → must (strongest)</p>
+    <p>Choose the modal that matches how strong the sentence is. A rule needs <b>must</b>. A suggestion needs <b>should</b>.</p>
+  </div>
+  <div class="rule">
+    <p class="formula">must not ≠ don't have to</p>
+    <p>You <b>must not</b> park here. (It is forbidden.) &nbsp; You <b>don't have to</b> park here. (It is not necessary. You can choose.)</p>
+  </div>
+
+  <h3>Common mistakes</h3>
+  <ul class="fixes">
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>She can speaks three languages.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>She can speak three languages.</span>
+        <span class="why">A modal verb is followed by the base verb. Never add -s after a modal.</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>You must to wear a helmet.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>You must wear a helmet.</span>
+        <span class="why">Do not put "to" between a modal and the verb.</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>He should going to the meeting.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>He should go to the meeting.</span>
+        <span class="why">Do not add -ing after a modal. Use the base verb.</span></li>
+  </ul>
+
+  <div class="quiz" data-quiz="s4"></div>
+</section>
+
+<!-- 5 CONDITIONALS -->
+<section class="sheet" id="s5" aria-labelledby="h-s5">
+  <div class="sheet-head"><span class="num" aria-hidden="true">5</span>
+    <div><h2 id="h-s5">If sentences (conditionals)</h2>
+    <p class="what">An <em>if</em> sentence has two parts: a condition (the if-part) and a result. The tense of each part tells you if the situation is real or imaginary.</p></div></div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>Type</th><th>Form</th><th>Meaning</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Zero</td><td>If + present simple, present simple</td><td>a general truth</td><td>If water reaches 100°C, it <b>boils</b>.</td></tr>
+      <tr><td>Type 1</td><td>If + present simple, <strong>will</strong> + base verb</td><td>real future possibility</td><td>If it <b>rains</b>, we <b>will cancel</b> the trip.</td></tr>
+      <tr><td>Type 2</td><td>If + past simple, <strong>would</strong> + base verb</td><td>imaginary now</td><td>If I <b>were</b> you, I <b>would apply</b> today.</td></tr>
+      <tr><td>Type 3</td><td>If + past perfect, <strong>would have</strong> + past participle</td><td>imaginary past (too late)</td><td>If he <b>had studied</b>, he <b>would have passed</b>.</td></tr>
+      <tr><td>Mixed</td><td>If + past perfect, would + base verb</td><td>past cause, present result</td><td>If she <b>had left</b> earlier, she <b>would be</b> here now.</td></tr>
+    </tbody></table></div>
+
+  <h3>Tips</h3>
+  <div class="rule">
+    <ul>
+      <li>Never put <b>will</b> directly after <em>if</em>. Say "If it <b>rains</b>", not "If it will rain".</li>
+      <li>In Type 2, use <b>were</b> for every subject in test English: If I <b>were</b>, if he <b>were</b>.</li>
+      <li>The result part uses <b>would have + past participle</b> for Type 3. The if-part uses <b>had + past participle</b>.</li>
+      <li>The if-part can come second. Then you do not need a comma: We will cancel the trip if it rains.</li>
+    </ul>
+  </div>
+
+  <h3>Common mistakes</h3>
+  <ul class="fixes">
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>If it will rain, we will cancel the trip.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>If it rains, we will cancel the trip.</span>
+        <span class="why">No "will" in the if-part. Use present simple.</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>If I would have time, I would help you.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>If I had time, I would help you.</span>
+        <span class="why">"Would" belongs in the result part. The if-part uses past simple.</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>If she had called, I would helped her.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>If she had called, I would have helped her.</span>
+        <span class="why">Type 3 needs "would have" + past participle in the result part.</span></li>
+  </ul>
+
+  <div class="quiz" data-quiz="s5"></div>
+</section>
+
+<!-- 6 PASSIVE -->
+<section class="sheet" id="s6" aria-labelledby="h-s6">
+  <div class="sheet-head"><span class="num" aria-hidden="true">6</span>
+    <div><h2 id="h-s6">Passive voice</h2>
+    <p class="what">Use the passive when the thing that receives the action is more important than the person who does it. It is very common in formal business English.</p></div></div>
+
+  <div class="rule">
+    <p class="formula">be + past participle (V3)</p>
+    <p>Active: The company <b>sent</b> the invoice. &nbsp; Passive: The invoice <b>was sent</b> (by the company).</p>
+    <p>The object of the active sentence becomes the subject of the passive sentence.</p>
+  </div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>Tense</th><th>Passive form</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Present simple</td><td>am / is / are + V3</td><td>Emails <b>are sent</b> daily.</td></tr>
+      <tr><td>Past simple</td><td>was / were + V3</td><td>The document <b>was updated</b> yesterday.</td></tr>
+      <tr><td>Present perfect</td><td>has / have been + V3</td><td>The files <b>have been uploaded</b>.</td></tr>
+      <tr><td>Future simple</td><td>will be + V3</td><td>The package <b>will be delivered</b> tomorrow.</td></tr>
+      <tr><td>Modal</td><td>modal + be + V3</td><td>Tickets <b>must be purchased</b> in advance.</td></tr>
+    </tbody></table></div>
+
+  <h3>How to know when to use the passive</h3>
+  <div class="rule">
+    <ul>
+      <li>The subject <strong>cannot do</strong> the action. A package cannot deliver itself, so: The package <b>will be delivered</b>.</li>
+      <li>You see <b>by + the doer</b>: The report was written <b>by</b> Tom.</li>
+      <li>There is no object after the verb: The room <b>was cleaned</b>.</li>
+    </ul>
+  </div>
+
+  <h3>Common mistakes</h3>
+  <ul class="fixes">
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>The files are send every day.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>The files are sent every day.</span>
+        <span class="why">After "be", use the past participle (sent), not the base verb.</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>The report was write by Tom.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>The report was written by Tom.</span>
+        <span class="why">Irregular verbs need the correct participle: write, wrote, written.</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>The package will deliver tomorrow.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>The package will be delivered tomorrow.</span>
+        <span class="why">The package receives the action, so the verb must be passive.</span></li>
+  </ul>
+
+  <div class="quiz" data-quiz="s6"></div>
+</section>
+
+<!-- 7 WORD FORMS -->
+<section class="sheet" id="s7" aria-labelledby="h-s7">
+  <div class="sheet-head"><span class="num" aria-hidden="true">7</span>
+    <div><h2 id="h-s7">Word forms</h2>
+    <p class="what">One word has several forms. The TOEIC gives you all of them and you choose the one that fits. The position of the blank tells you the answer.</p></div></div>
+
+  <h3>One idea, four forms</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Verb</th><th>Noun</th><th>Adjective</th><th>Adverb</th></tr></thead>
+    <tbody>
+      <tr><td>decide</td><td>decision</td><td>decisive</td><td>decisively</td></tr>
+      <tr><td>succeed</td><td>success</td><td>successful</td><td>successfully</td></tr>
+      <tr><td>rely</td><td>reliability</td><td>reliable</td><td>reliably</td></tr>
+    </tbody></table></div>
+
+  <h3>Look at the position of the blank</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Where the blank is</th><th>Use a…</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>after a / an / the / his / their</td><td>noun</td><td>The <b>decision</b> was fast.</td></tr>
+      <tr><td>before a noun</td><td>adjective</td><td>An <b>effective</b> plan is needed.</td></tr>
+      <tr><td>after be / become / seem / look</td><td>adjective</td><td>The process is <b>complicated</b>.</td></tr>
+      <tr><td>after an action verb</td><td>adverb</td><td>He answered <b>quickly</b>.</td></tr>
+      <tr><td>before an adjective</td><td>adverb</td><td>An <b>extremely</b> useful tool.</td></tr>
+    </tbody></table></div>
+
+  <h3>Ending clues</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Part of speech</th><th>Common endings</th><th>Examples</th></tr></thead>
+    <tbody>
+      <tr><td>Noun</td><td>-tion, -ment, -ness, -ity</td><td>information, payment, kindness, ability</td></tr>
+      <tr><td>Adjective</td><td>-ive, -ous, -al, -able, -ful</td><td>active, famous, national, reliable, careful</td></tr>
+      <tr><td>Verb</td><td>-ize, -ate, -en</td><td>organize, create, widen</td></tr>
+      <tr><td>Adverb</td><td>-ly</td><td>carefully, recently, quickly</td></tr>
+    </tbody></table></div>
+  <p>Be careful: a few words end in <em>-ly</em> but are adjectives, such as <em>friendly</em> and <em>early</em>.</p>
+
+  <h3>Common mistakes</h3>
+  <ul class="fixes">
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>She spoke clear to the group.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>She spoke clearly to the group.</span>
+        <span class="why">To describe a verb (spoke), use an adverb.</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>They made an important decide.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>They made an important decision.</span>
+        <span class="why">After "an important" we need a noun, not a verb.</span></li>
+    <li><span class="bad"><span class="mk" aria-hidden="true">✗</span><span class="sr">Wrong: </span><s>The process is complication.</s></span>
+        <span class="good"><span class="mk" aria-hidden="true">✓</span><span class="sr">Right: </span>The process is complicated.</span>
+        <span class="why">After "is", we describe the subject with an adjective.</span></li>
+  </ul>
+
+  <div class="quiz" data-quiz="s7"></div>
+</section>
+
+<!-- 8 FINAL MIXED TEST -->
+<section class="sheet" id="s8" aria-labelledby="h-s8">
+  <div class="sheet-head"><span class="num" aria-hidden="true">8</span>
+    <div><h2 id="h-s8">Final mixed test</h2>
+    <p class="what">All seven topics together, in random order, like the real exam. Each test has 21 questions drawn from a bank of 56, so every retake gives you a different set. There are no hints about which topic comes next.</p></div></div>
+
+  <div class="rule">
+    <p class="formula">Before you start</p>
+    <ul>
+      <li>Read the words around the blank first. Its position often shows the answer.</li>
+      <li>Look for clue words: <em>since, for, yesterday, by, if, either… or</em>.</li>
+      <li>Cross out answers that are clearly wrong in grammar.</li>
+      <li>Check that the verb matches the subject.</li>
+    </ul>
+  </div>
+
+  <div class="quiz" data-quiz="s8"></div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <p>Topics follow the TOEIC grammar guide at estudyme.com. The explanations, examples and questions on this page are original.</p>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+var SECTIONS=['s1','s2','s3','s4','s5','s6','s7','s8'];
+var TOPICS={s1:'Verb tenses',s2:'Subject and verb agreement',s3:'Gerunds and infinitives',s4:'Modal verbs',s5:'If sentences',s6:'Passive voice',s7:'Word forms'};
+
+var QUIZ={
+
+s1:[
+ {type:'mc',instr:`Choose the best answer.`,q:`The company ___ its new office in 2019.`,opts:[
+  {t:`has opened`,why:`"In 2019" is a finished time. Present perfect cannot be used with a finished time.`},
+  {t:`opened`,ok:true,why:`Correct. "In 2019" is a finished time, so we use past simple.`},
+  {t:`opens`,why:`Present simple is for habits and facts. The opening happened in the past, so the verb must be past.`},
+  {t:`will open`,why:`"Will open" is future, but 2019 is already in the past.`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`We ___ together since last March.`,opts:[
+  {t:`work`,why:`Present simple does not show an action that began in the past. "Since" needs present perfect.`},
+  {t:`worked`,why:`Past simple means the action is finished. But "since last March" means we still work together now.`},
+  {t:`have worked`,ok:true,why:`Correct. "Since" + a starting point means the action began in the past and continues now: present perfect.`},
+  {t:`will work`,why:`"Will work" is future. "Since last March" looks back to the past.`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`By the time the manager arrived, the meeting ___.`,opts:[
+  {t:`ended`,why:`We must show that the meeting finished BEFORE the manager arrived. Past simple does not show the order clearly. "By the time" + a past action needs past perfect.`},
+  {t:`has ended`,why:`Present perfect connects the past to now. This sentence is about two moments in the past ("arrived"), so it does not fit.`},
+  {t:`had ended`,ok:true,why:`Correct. Two past actions: the earlier one (the meeting ended) uses past perfect (had + past participle).`},
+  {t:`will end`,why:`"Will end" is future, but the manager already arrived (past).`}]},
+ {type:'fill',instr:`Type the correct form of the verb in brackets.`,q:`Please call me as soon as you ___ (arrive) at the airport.`,answers:[`arrive`],
+  wrong:{'will arrive':`After "as soon as", do not use "will", even when the meaning is future. Use present simple.`,
+         'arrived':`"Arrived" is past, but the arriving has not happened yet. Use present simple.`,
+         'arrives':`With "you", the present simple verb has no -s. Use "arrive".`,
+         'arriving':`"Arriving" is not a complete verb here. Use present simple: "arrive".`},
+  fallback:`Remember the rule: after "as soon as", "when", "before" and "after", we use present simple for future meaning.`,
+  why:`After "as soon as" we use present simple, even when we talk about the future: "as soon as you arrive".`},
+ {type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`The sales team`,why:`The subject is fine. "Team" is a singular noun here.`},
+  {t:`has finished`,bad:true,why:`Present perfect does not go with a finished time like "yesterday afternoon". Use past simple: "finished".`},
+  {t:`the report`,why:`This is the object of the verb. Nothing is wrong here.`},
+  {t:`yesterday afternoon.`,why:`This time phrase is correct. It is the clue that tells us to use past simple.`}],
+  fix:`The sales team **finished** the report yesterday afternoon.`},
+ {type:'tf',instr:`Is the statement true or false?`,q:`"I have lived here for five years" means I still live here now.`,answer:true,
+  why:`Present perfect + "for" shows a situation that started in the past and continues now. If the person moved away, we would say "I lived here for five years" (past simple).`},
+ {type:'match',instr:`Match each time clue to the tense it points to.`,choices:[`Present simple`,`Present continuous`,`Present perfect`,`Past simple`,`Future perfect`],rows:[
+  {t:`every Monday`,a:`Present simple`,why:`"Every Monday" shows a repeated habit or routine.`},
+  {t:`at the moment`,a:`Present continuous`,why:`"At the moment" means happening right now.`},
+  {t:`since 2018`,a:`Present perfect`,why:`"Since" + a starting point means it began in the past and continues now.`},
+  {t:`two days ago`,a:`Past simple`,why:`"Ago" shows a finished time in the past.`},
+  {t:`by 6 p.m. tomorrow`,a:`Future perfect`,why:`"By" + a future time means the action will be finished before that time.`}]}
+],
+
+s2:[
+ {type:'mc',instr:`Choose the best answer.`,q:`The information in these files ___ confidential.`,opts:[
+  {t:`are`,why:`"Information" is an uncountable noun, so it takes a singular verb. "Are" is plural.`},
+  {t:`is`,ok:true,why:`Correct. "Information" is uncountable, so we use a singular verb.`},
+  {t:`were`,why:`"Were" is a plural past verb. "Information" is singular.`},
+  {t:`have been`,why:`"Have been" is plural. A singular subject needs "has been" or "is".`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`Neither the manager nor the employees ___ aware of the change.`,opts:[
+  {t:`is`,why:`With neither… nor, the verb agrees with the noun closest to it: "employees". "Is" would match "manager", the first noun.`},
+  {t:`are`,ok:true,why:`Correct. The closest noun is "employees" (plural), so we use "are".`},
+  {t:`was`,why:`"Was" is singular. The closest noun, "employees", is plural.`},
+  {t:`has been`,why:`"Has been" is singular, so it does not match "employees".`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`The number of customers ___ growing every year.`,opts:[
+  {t:`are`,why:`"The number of" talks about one number, so the verb is singular. ("A number of" is different: it means "many" and takes a plural verb.)`},
+  {t:`is`,ok:true,why:`Correct. "The number of" + plural noun takes a singular verb.`},
+  {t:`were`,why:`"Were" is plural and past. The sentence has "every year", so it is present time, and "the number" is singular.`},
+  {t:`have`,why:`"Have growing" is not a correct verb form. "Have" is also plural.`}]},
+ {type:'fill',instr:`Type the correct form of the verb in brackets.`,q:`Each of the new employees ___ (receive) a welcome pack.`,answers:[`receives`,`has received`],
+  wrong:{'receive':`"Each" is always singular, even before "of the employees". The verb needs -s: "receives".`,
+         'are receiving':`"Are" is plural. "Each" takes a singular verb.`,
+         'have received':`"Have" is plural. Use "has received" or "receives".`},
+  fallback:`"Each" is singular. A singular subject takes a singular verb (with -s).`,
+  why:`"Each" is singular, so the verb takes -s: "receives".`},
+ {type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`The list`,why:`"List" is the real subject. It is singular.`},
+  {t:`of new products`,why:`This phrase only describes the list. It does not change the subject, so "products" does not decide the verb.`},
+  {t:`are`,bad:true,why:`The subject is "list" (singular), so the verb must be "is". "Are" matches "products", which is not the subject.`},
+  {t:`ready for review.`,why:`Nothing is wrong here.`}],
+  fix:`The list of new products **is** ready for review.`},
+ {type:'tf',instr:`Is the statement true or false?`,q:`In the sentence "A number of people are waiting outside," the verb "are" is correct.`,answer:true,
+  why:`"A number of" means "many", so it takes a plural verb. Do not confuse it with "The number of", which takes a singular verb.`},
+ {type:'match',instr:`Choose the correct verb for each subject.`,choices:[`is`,`are`],rows:[
+  {t:`Everyone ___ ready.`,a:`is`,why:`"Everyone" is singular.`},
+  {t:`Both managers ___ here.`,a:`are`,why:`"Both" is always plural.`},
+  {t:`Ten dollars ___ enough.`,a:`is`,why:`An amount of money is one amount, so it is singular.`},
+  {t:`My glasses ___ broken.`,a:`are`,why:`"Glasses" is always plural, like "pants" and "scissors".`},
+  {t:`Physics ___ interesting.`,a:`is`,why:`"Physics" ends in -s, but it is one subject, so it is singular.`}]}
+],
+
+s3:[
+ {type:'mc',instr:`Choose the best answer.`,q:`Our team is considering ___ a new office downtown.`,opts:[
+  {t:`to open`,why:`"Consider" is followed by V-ing, not by to + verb.`},
+  {t:`opening`,ok:true,why:`Correct. "Consider" is followed by V-ing.`},
+  {t:`open`,why:`After "considering" we need a V-ing form, not the base verb.`},
+  {t:`opened`,why:`A past form cannot follow "consider". Use V-ing.`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`The manager encouraged the team ___ new ideas.`,opts:[
+  {t:`sharing`,why:`"Encourage + person" is followed by to + verb, not V-ing.`},
+  {t:`shared`,why:`A past form cannot follow "encourage + person". Use to + verb.`},
+  {t:`to share`,ok:true,why:`Correct. The pattern is encourage + person + to + verb.`},
+  {t:`share`,why:`The base verb needs "to" after "encourage + person".`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`Thank you for ___ me with the report.`,opts:[
+  {t:`to help`,why:`After a preposition ("for"), we use V-ing, not to + verb.`},
+  {t:`helping`,ok:true,why:`Correct. After a preposition, the verb ends in -ing.`},
+  {t:`help`,why:`After a preposition, the verb must end in -ing. The base verb is not correct.`},
+  {t:`helped`,why:`A past form cannot follow a preposition. Use V-ing.`}]},
+ {type:'fill',instr:`Type the correct form of the verb in brackets. You may need two words.`,q:`Don't forget ___ (lock) the door when you leave.`,answers:[`to lock`],
+  wrong:{'locking':`"Forget + V-ing" means you forgot something you did before. Here we mean "do not fail to lock the door" (a future action), so use to + verb.`,
+         'lock':`"Forget" needs to + verb or V-ing. The base verb alone is not correct.`,
+         'locked':`A past form cannot follow "forget". Use "to lock".`},
+  fallback:`Think about the meaning: you want to remind someone about a future action. For that meaning, "forget" is followed by to + verb.`,
+  why:`"Forget to do" means fail to do something. Here it is a reminder about a future action.`},
+ {type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`She`,why:`The subject is correct.`},
+  {t:`stopped`,why:`"Stopped" is the right verb and tense. The problem is the form after it.`},
+  {t:`to work`,bad:true,why:`"Stop to work" means "stop something in order to work". This sentence means she quit her job, so we need "stopped working".`},
+  {t:`at the bank last year because she moved.`,why:`This part is correct.`}],
+  fix:`She stopped **working** at the bank last year because she moved.`},
+ {type:'tf',instr:`Is the statement true or false?`,q:`"I remember to send the email" means I recall that I sent it in the past.`,answer:false,
+  why:`"Remember to send" means "do not forget to send it" (a future action). To talk about remembering a past action, we say "I remember sending the email."`,
+  fix:`I remember **sending** the email.`},
+ {type:'match',instr:`Which form follows each verb?`,choices:[`V-ing`,`to + verb`],rows:[
+  {t:`enjoy`,a:`V-ing`,why:`"Enjoy" is followed by V-ing: "enjoy cooking".`},
+  {t:`hope`,a:`to + verb`,why:`"Hope" is followed by to + verb: "hope to see you".`},
+  {t:`avoid`,a:`V-ing`,why:`"Avoid" is followed by V-ing: "avoid driving".`},
+  {t:`offer`,a:`to + verb`,why:`"Offer" is followed by to + verb: "offer to help".`},
+  {t:`suggest`,a:`V-ing`,why:`"Suggest" is followed by V-ing: "suggest leaving early".`}]}
+],
+
+s4:[
+ {type:'mc',instr:`Choose the best answer.`,q:`All visitors ___ sign in at the front desk before entering.`,opts:[
+  {t:`might`,why:`"Might" shows a small possibility. This sentence is a rule, so we need a strong word.`},
+  {t:`must`,ok:true,why:`Correct. "Must" shows strong obligation, which fits a rule.`},
+  {t:`would`,why:`"Would" is used for polite requests or imaginary situations. It does not state a rule.`},
+  {t:`could`,why:`"Could" shows ability or possibility, not obligation.`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`Our new employee ___ speak three languages.`,opts:[
+  {t:`can`,ok:true,why:`Correct. Modal + base verb: "can speak".`},
+  {t:`cans`,why:`Modal verbs never take -s, even with he, she or it.`},
+  {t:`can to`,why:`Do not use "to" after "can". The pattern is modal + base verb.`},
+  {t:`is can`,why:`We do not use "be" with a modal verb. "Can" alone is enough.`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`___ you please send me the schedule?`,opts:[
+  {t:`Would`,ok:true,why:`Correct. "Would you please…?" is a polite request.`},
+  {t:`Must`,why:`"Must" is for strong obligation. As a question it sounds rude and unnatural.`},
+  {t:`Might`,why:`"Might" shows possibility. It does not make a request.`},
+  {t:`Ought`,why:`"Ought" is always followed by "to" and it gives advice, not a request.`}]},
+ {type:'fill',instr:`Type the correct form of the verb in brackets.`,q:`You must ___ (submit) the form before Friday.`,answers:[`submit`],
+  wrong:{'to submit':`Do not use "to" after a modal verb. Use the base verb.`,
+         'submitting':`Do not add -ing after a modal verb. Use the base verb.`,
+         'submitted':`Do not use a past form after a modal verb. Use the base verb.`,
+         'submits':`The verb after a modal never takes -s. Use the base verb.`},
+  fallback:`After a modal verb (must, can, should…), use the base verb with nothing added.`,
+  why:`Modal + base verb: "must submit".`},
+ {type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`All staff`,why:`The subject is fine.`},
+  {t:`must to wear`,bad:true,why:`After "must" we use the base verb directly. "To" is not allowed: "must wear".`},
+  {t:`a badge`,why:`This is the object. It is correct.`},
+  {t:`inside the building.`,why:`This place phrase is correct.`}],
+  fix:`All staff **must wear** a badge inside the building.`},
+ {type:'tf',instr:`Is the statement true or false?`,q:`"You don't have to wear a tie" means that wearing a tie is forbidden.`,answer:false,
+  why:`"Don't have to" means it is not necessary, so you can choose. "Must not" means it is forbidden. Keep these two separate.`,
+  fix:`You **must not** wear a tie. (forbidden) / You **don't have to** wear a tie. (not necessary)`},
+ {type:'match',instr:`What does the modal verb show in each sentence?`,choices:[`Ability`,`Permission`,`Advice`,`Obligation`,`Possibility`],rows:[
+  {t:`She can swim.`,a:`Ability`,why:`"Can" shows what she is able to do.`},
+  {t:`You may leave early.`,a:`Permission`,why:`"May" here means you are allowed to.`},
+  {t:`You should check your email.`,a:`Advice`,why:`"Should" gives a recommendation.`},
+  {t:`Visitors must wear a badge.`,a:`Obligation`,why:`"Must" shows a rule you have to follow.`},
+  {t:`It might rain.`,a:`Possibility`,why:`"Might" shows something that is possible, but not sure.`}]}
+],
+
+s5:[
+ {type:'mc',instr:`Choose the best answer.`,q:`If the supplier ___ on time, we will meet the deadline.`,opts:[
+  {t:`will deliver`,why:`Never use "will" directly after "if". The if-part uses present simple.`},
+  {t:`delivers`,ok:true,why:`Correct. This is Type 1 (real possibility): if + present simple, will + base verb.`},
+  {t:`delivered`,why:`Past simple in the if-part goes with "would" in the result (Type 2, imaginary). This sentence has "will", so it is a real possibility (Type 1).`},
+  {t:`would deliver`,why:`"Would" belongs in the result part of an imaginary sentence, not in the if-part.`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`If I ___ you, I would accept the offer.`,opts:[
+  {t:`am`,why:`Nobody can really be someone else, so this is imaginary. Imaginary situations use past forms, not "am".`},
+  {t:`was`,why:`"Was" is common in speech, but in formal and test English, imaginary "if" sentences use "were" for every subject.`},
+  {t:`were`,ok:true,why:`Correct. Type 2 uses "were" for every subject: "If I were you…".`},
+  {t:`will be`,why:`Never use "will" after "if".`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`If he had studied harder, he ___ the exam.`,opts:[
+  {t:`would pass`,why:`This form is for an imaginary present or future. The exam is already in the past, so we need "would have + past participle".`},
+  {t:`would have passed`,ok:true,why:`Correct. Type 3 (imaginary past): if + had + past participle, would have + past participle.`},
+  {t:`will pass`,why:`"Will" is future, but the exam is already finished.`},
+  {t:`passed`,why:`Past simple alone is not the result form in Type 3. The result needs "would have + past participle".`}]},
+ {type:'fill',instr:`Type the correct form of the verb in brackets. You may need two words.`,q:`If she ___ (leave) earlier, she would have caught the train.`,answers:[`had left`],
+  wrong:{'left':`Past simple is the Type 2 form. This sentence is about the past (Type 3), so use past perfect: "had left".`,
+         'would have left':`"Would have + past participle" goes in the result part. The if-part needs "had + past participle".`,
+         'has left':`Present perfect does not fit an imaginary past situation. Use "had left".`,
+         'had leave':`After "had", use the past participle (left), not the base verb.`},
+  fallback:`This is an imaginary past situation (Type 3). The if-part uses had + past participle.`,
+  why:`Type 3: if + had + past participle ("had left"), would have + past participle ("would have caught").`},
+ {type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`If the manager`,why:`The if-clause starts correctly.`},
+  {t:`will approve`,bad:true,why:`Never use "will" directly after "if". Use present simple: "approves".`},
+  {t:`the budget,`,why:`This is the object of the verb, followed by a comma. It is fine.`},
+  {t:`we will start the project next week.`,why:`The result part uses "will" + base verb. This is correct for Type 1.`}],
+  fix:`If the manager **approves** the budget, we will start the project next week.`},
+ {type:'tf',instr:`Is the statement true or false?`,q:`"If I had known, I would have told you" describes something that really happened.`,answer:false,
+  why:`It is a Type 3 sentence (imaginary past). It means: I did not know, so I did not tell you.`},
+ {type:'match',instr:`Which type of if sentence is each one?`,choices:[`Zero`,`Type 1`,`Type 2`,`Type 3`],rows:[
+  {t:`If water reaches 100°C, it boils.`,a:`Zero`,why:`Present simple + present simple: a general fact.`},
+  {t:`If it rains, we will stay home.`,a:`Type 1`,why:`Present simple + will: a real future possibility.`},
+  {t:`If I had more money, I would buy it.`,a:`Type 2`,why:`Past simple + would: imaginary now.`},
+  {t:`If she had called, I would have answered.`,a:`Type 3`,why:`Past perfect + would have + past participle: imaginary past.`}]}
+],
+
+s6:[
+ {type:'mc',instr:`Choose the best answer.`,q:`The final schedule ___ to all participants next Monday.`,opts:[
+  {t:`will send`,why:`"Will send" is active. The schedule cannot send itself. It receives the action, so we need the passive.`},
+  {t:`is sending`,why:`Same problem: this verb is active, and a schedule cannot send anything.`},
+  {t:`will be sent`,ok:true,why:`Correct. Future passive: will be + past participle.`},
+  {t:`has sent`,why:`This is active too, and "has sent" (present perfect) does not match "next Monday", which is future.`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`All invoices ___ by the finance team every month.`,opts:[
+  {t:`process`,why:`A base verb is not passive. The passive needs be + past participle.`},
+  {t:`are processed`,ok:true,why:`Correct. Present simple passive with a plural subject: are + past participle.`},
+  {t:`is processed`,why:`"Invoices" is plural, so we need "are", not "is".`},
+  {t:`are processing`,why:`This is active ("are processing"). Invoices cannot process anything. The finance team does.`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`The new policy ___ to all employees already.`,opts:[
+  {t:`has announced`,why:`This is active. A policy does not announce things. Someone announces it.`},
+  {t:`has been announced`,ok:true,why:`Correct. Present perfect passive: has been + past participle. "Policy" is singular, so "has".`},
+  {t:`have been announced`,why:`The form is passive, but "policy" is singular, so we need "has", not "have".`},
+  {t:`was announcing`,why:`This is active and continuous. It does not fit the passive meaning.`}]},
+ {type:'fill',instr:`Type the correct form of the verb in brackets.`,q:`Tickets must be ___ (purchase) in advance.`,answers:[`purchased`],
+  wrong:{'purchase':`In a passive sentence, the verb after "be" must be the past participle (V3), not the base verb.`,
+         'purchasing':`"Be + -ing" is continuous (active). Passive needs the past participle: "purchased".`,
+         'purchases':`The verb after "be" must be a past participle, not a present form with -s.`},
+  fallback:`Passive = be + past participle. After "must be", use the V3 form.`,
+  why:`Modal passive: must + be + past participle ("must be purchased").`},
+ {type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`The documents`,why:`The subject is correct. It receives the action of signing.`},
+  {t:`was signed`,bad:true,why:`"Documents" is plural, so the passive verb must be "were signed".`},
+  {t:`by the director`,why:`"By + the doer" is the normal way to show who did the action.`},
+  {t:`yesterday.`,why:`A past time word matches the past simple passive.`}],
+  fix:`The documents **were** signed by the director yesterday.`},
+ {type:'tf',instr:`Is the statement true or false?`,q:`"The meeting was cancel by the manager" is a correct passive sentence.`,answer:false,
+  why:`The passive needs the past participle: "cancelled" (or "canceled"). The base verb "cancel" is not correct after "was".`,
+  fix:`The meeting was **cancelled** by the manager.`},
+ {type:'match',instr:`Which passive form is each sentence?`,choices:[`Present simple`,`Past simple`,`Present perfect`,`Future simple`,`Modal`],rows:[
+  {t:`Emails are sent daily.`,a:`Present simple`,why:`am / is / are + past participle.`},
+  {t:`The document was updated yesterday.`,a:`Past simple`,why:`was / were + past participle.`},
+  {t:`The files have been uploaded.`,a:`Present perfect`,why:`has / have been + past participle.`},
+  {t:`The package will be delivered tomorrow.`,a:`Future simple`,why:`will be + past participle.`},
+  {t:`Tickets must be purchased in advance.`,a:`Modal`,why:`modal + be + past participle.`}]}
+],
+
+s7:[
+ {type:'mc',instr:`Choose the best answer.`,q:`We were impressed by the ___ of the new software.`,opts:[
+  {t:`reliable`,why:`"Reliable" is an adjective. After "the" and before "of", we need a noun.`},
+  {t:`reliably`,why:`"Reliably" is an adverb. Adverbs do not come after "the".`},
+  {t:`reliability`,ok:true,why:`Correct. After "the" we need a noun. Words ending in -ity are nouns.`},
+  {t:`rely`,why:`"Rely" is a verb. A verb cannot come after "the" here.`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`The training session was very ___.`,opts:[
+  {t:`informative`,ok:true,why:`Correct. After "was very" we use an adjective. -ive is an adjective ending.`},
+  {t:`information`,why:`This is a noun. "The session was very information" does not describe the session. We need an adjective.`},
+  {t:`inform`,why:`This is a verb. A verb does not follow "was very".`},
+  {t:`informatively`,why:`This is an adverb. After "was", we describe the subject with an adjective, not an adverb.`}]},
+ {type:'mc',instr:`Choose the best answer.`,q:`She ___ explained the new rules to the staff.`,opts:[
+  {t:`clear`,why:`"Clear" is an adjective. An adjective cannot describe the verb "explained". We need an adverb.`},
+  {t:`clearly`,ok:true,why:`Correct. An adverb (-ly) describes the verb "explained".`},
+  {t:`clarify`,why:`"Clarify" is a verb. The sentence already has a verb ("explained").`},
+  {t:`clarity`,why:`"Clarity" is a noun. A noun cannot describe a verb.`}]},
+ {type:'fill',instr:`Type the correct form of the word in brackets.`,q:`The company made a quick ___ (decide).`,answers:[`decision`],
+  wrong:{'decisive':`"Decisive" is an adjective, but "a quick" is already an adjective. After it we need a noun.`,
+         'decided':`"Decided" is a verb form. After "a quick" we need a noun.`,
+         'decide':`"Decide" is a verb. After "a quick" we need a noun.`,
+         'decisively':`"Decisively" is an adverb. Adverbs do not come after "a quick".`},
+  fallback:`Look at the words before the blank: "a quick ___". After an adjective, the next word should be a noun.`,
+  why:`After "a quick" (an adjective), we need a noun: "a quick decision".`},
+ {type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`The new employee`,why:`The subject is correct.`},
+  {t:`answered the questions`,why:`The verb and object are fine. "Answered" is the action that needs an adverb after it.`},
+  {t:`very`,why:`"Very" is an adverb that strengthens the word after it. It is fine.`},
+  {t:`careful.`,bad:true,why:`"Careful" is an adjective. It cannot describe the verb "answered". Use the adverb "carefully".`}],
+  fix:`The new employee answered the questions very **carefully**.`},
+ {type:'tf',instr:`Is the statement true or false?`,q:`We can say "a quickly decision", because "quickly" can describe a noun.`,answer:false,
+  why:`"Quickly" is an adverb. Adverbs describe verbs, adjectives or other adverbs, not nouns. To describe a noun, use the adjective "quick".`,
+  fix:`a **quick** decision`},
+ {type:'match',instr:`Choose the part of speech for each word.`,choices:[`Noun`,`Verb`,`Adjective`,`Adverb`],rows:[
+  {t:`payment`,a:`Noun`,why:`-ment is a noun ending.`},
+  {t:`organize`,a:`Verb`,why:`-ize is a verb ending.`},
+  {t:`reliable`,a:`Adjective`,why:`-able is an adjective ending.`},
+  {t:`carefully`,a:`Adverb`,why:`-ly usually makes an adverb.`},
+  {t:`kindness`,a:`Noun`,why:`-ness is a noun ending.`}]}
+],
+
+s8:[
+ /* verb tenses */
+ {topic:'s1',type:'mc',instr:`Choose the best answer.`,q:`Mr. Lee ___ the report when the power went out.`,opts:[
+  {t:`writes`,why:`Present simple is for habits and facts. The power cut happened in the past, so the verb must be past.`},
+  {t:`was writing`,ok:true,why:`Correct. Past continuous shows an action in progress when another past action ("went out") interrupted it.`},
+  {t:`has written`,why:`Present perfect connects the past to now. "Went out" is a finished moment in the past, so it does not fit.`},
+  {t:`will write`,why:`"Will write" is future, but the power cut already happened.`}]},
+ {topic:'s1',type:'fill',instr:`Type the correct form of the verb in brackets. You will need three words.`,q:`By next June, we ___ (complete) the new building.`,answers:[`will have completed`],
+  wrong:{'will complete':`"By next June" means the work is finished before that time. That needs future perfect: will have + past participle.`,
+         'have completed':`Present perfect does not fit a future time. Use future perfect: "will have completed".`,
+         'completed':`"Completed" is past simple, but "next June" is in the future.`,
+         'will have complete':`After "will have", use the past participle: "completed".`},
+  fallback:`"By" + a future time means the action will be finished before that time. Use future perfect (will have + past participle).`,
+  why:`"By next June" points to future perfect: "will have completed".`},
+ {topic:'s1',type:'tf',instr:`Is the statement true or false?`,q:`"Before I arrived, they had already left" means they left first and I arrived later.`,answer:true,
+  why:`"Had left" is past perfect. It shows the earlier of two past actions, so they left first.`},
+
+ /* subject and verb agreement */
+ {topic:'s2',type:'mc',instr:`Choose the best answer.`,q:`A pair of shoes ___ on sale this week.`,opts:[
+  {t:`are`,why:`The subject is "pair", which is singular. "Shoes" is only part of the phrase "of shoes".`},
+  {t:`is`,ok:true,why:`Correct. "A pair of + plural noun" takes a singular verb.`},
+  {t:`were`,why:`"Were" is plural and past. "This week" is present time, and "pair" is singular.`},
+  {t:`have been`,why:`"Have been" is plural. The singular subject "pair" needs "has been" or "is".`}]},
+ {topic:'s2',type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`The manager,`,why:`This is the real subject. It is singular.`},
+  {t:`along with his assistants,`,why:`This phrase only adds information. It does not change the subject, so "assistants" does not decide the verb.`},
+  {t:`are attending`,bad:true,why:`With "along with", the verb agrees with the first noun, "manager" (singular). It must be "is attending".`},
+  {t:`the conference.`,why:`This is the object. It is correct.`}],
+  fix:`The manager, along with his assistants, **is attending** the conference.`},
+ {topic:'s2',type:'tf',instr:`Is the statement true or false?`,q:`"There is two problems with the plan" is correct English.`,answer:false,
+  why:`After "there is / there are", the verb agrees with the noun that follows. "Problems" is plural, so we need "are".`,
+  fix:`There **are** two problems with the plan.`},
+
+ /* gerunds and infinitives */
+ {topic:'s3',type:'mc',instr:`Choose the best answer.`,q:`The manager suggested ___ the meeting until Friday.`,opts:[
+  {t:`to postpone`,why:`"Suggest" is followed by V-ing, not by to + verb.`},
+  {t:`postponing`,ok:true,why:`Correct. "Suggest" is followed by V-ing.`},
+  {t:`postpone`,why:`After "suggested" we need a V-ing form. The base verb is not correct.`},
+  {t:`postponed`,why:`A past form cannot follow "suggest". Use V-ing.`}]},
+ {topic:'s3',type:'fill',instr:`Type the correct form of the verb in brackets. You may need two words.`,q:`The company hopes ___ (expand) into Asia next year.`,answers:[`to expand`],
+  wrong:{'expanding':`"Hope" is followed by to + verb, not V-ing.`,
+         'expand':`"Hope" needs "to" before the verb: "to expand".`,
+         'expanded':`A past form cannot follow "hope". Use to + verb.`},
+  fallback:`"Hope" belongs to the group of verbs that are followed by to + verb (decide, plan, want, offer).`,
+  why:`"Hope" is followed by to + verb: "hopes to expand".`},
+ {topic:'s3',type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`She is`,why:`The subject and verb are correct.`},
+  {t:`interested in`,why:`"Interested in" is a correct phrase. The problem is the form after the preposition "in".`},
+  {t:`to learn`,bad:true,why:`After a preposition, we use V-ing, not to + verb. Use "learning".`},
+  {t:`Japanese.`,why:`The object is correct.`}],
+  fix:`She is interested in **learning** Japanese.`},
+
+ /* modal verbs */
+ {topic:'s4',type:'mc',instr:`Choose the best answer.`,q:`Employees ___ park in the visitor spaces. It is against the rules.`,opts:[
+  {t:`must not`,ok:true,why:`Correct. "Must not" means it is forbidden.`},
+  {t:`don't have to`,why:`"Don't have to" means it is not necessary. That is different from forbidden.`},
+  {t:`might not`,why:`"Might not" means "maybe not". This is a rule, so it is too weak.`},
+  {t:`may`,why:`"May" gives permission, which is the opposite of the meaning here.`}]},
+ {topic:'s4',type:'tf',instr:`Is the statement true or false?`,q:`"You should leave now" is a stronger order than "You must leave now."`,answer:false,
+  why:`"Should" gives advice. "Must" shows a strong obligation. So "must" is the stronger one.`},
+ {topic:'s4',type:'match',instr:`Is each sentence about something forbidden, or something not necessary?`,choices:[`Forbidden`,`Not necessary`],rows:[
+  {t:`You must not enter.`,a:`Forbidden`,why:`"Must not" means you are not allowed.`},
+  {t:`You don't have to enter.`,a:`Not necessary`,why:`"Don't have to" means you can choose. It is not required.`},
+  {t:`Staff must not smoke here.`,a:`Forbidden`,why:`"Must not" states a rule against smoking.`},
+  {t:`Guests don't have to pay.`,a:`Not necessary`,why:`Payment is not required, but it is not forbidden either.`}]},
+
+ /* if sentences */
+ {topic:'s5',type:'mc',instr:`Choose the best answer.`,q:`If the printer ___ again, call the technician.`,opts:[
+  {t:`will break`,why:`Never use "will" directly after "if".`},
+  {t:`breaks`,ok:true,why:`Correct. A real possibility uses if + present simple. The result can be a command (call the technician).`},
+  {t:`broke`,why:`Past simple in the if-part makes an imaginary situation (Type 2) that needs "would" in the result. This sentence has a command, so it is a real situation.`},
+  {t:`would break`,why:`"Would" belongs in the result part of an imaginary sentence, not in the if-part.`}]},
+ {topic:'s5',type:'fill',instr:`Type the correct form of the verb in brackets. You will need two words.`,q:`If she had studied harder, she ___ (be) a doctor now.`,answers:[`would be`],
+  wrong:{'would have been':`That is the Type 3 result, which talks about a past result. "Now" shows a present result, so use "would be".`,
+         'will be':`"Will" is for real future possibilities. The if-part is imaginary past, so the result needs "would".`,
+         'was':`The result part of an imaginary sentence needs "would" + base verb.`,
+         'is':`The result part of an imaginary sentence needs "would" + base verb.`},
+  fallback:`The if-part is an imaginary past (had studied), but "now" shows a present result. That is a mixed conditional: would + base verb.`,
+  why:`Mixed conditional: if + past perfect (imaginary past cause), would + base verb (present result).`},
+ {topic:'s5',type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`If he had known`,why:`The if-part uses past perfect for an imaginary past. This is correct.`},
+  {t:`the answer,`,why:`This is the object, followed by a comma. It is fine.`},
+  {t:`he will have told`,bad:true,why:`Type 3 needs "would have + past participle" in the result part. "Will have told" is future perfect.`},
+  {t:`us.`,why:`This is correct.`}],
+  fix:`If he had known the answer, he **would have told** us.`},
+
+ /* passive voice */
+ {topic:'s6',type:'mc',instr:`Choose the best answer.`,q:`The new software ___ by our IT team last month.`,opts:[
+  {t:`installed`,why:`This is active. Software cannot install things. It receives the action, so we need the passive.`},
+  {t:`was installed`,ok:true,why:`Correct. Past simple passive: was + past participle. "Last month" is a finished time.`},
+  {t:`is installed`,why:`Present tense does not match "last month", which is in the past.`},
+  {t:`has been installed`,why:`Present perfect cannot be used with a finished time like "last month".`}]},
+ {topic:'s6',type:'fill',instr:`Type the correct form of the verb in brackets.`,q:`The documents have been ___ (send) to the client.`,answers:[`sent`],
+  wrong:{'send':`In a passive sentence, the verb after "been" must be the past participle, not the base verb.`,
+         'sending':`"Been + -ing" does not make a passive sentence. Passive needs the past participle.`,
+         'sended':`"Send" is irregular: send, sent, sent. There is no word "sended".`,
+         'sends':`After "been", use the past participle, not a present form with -s.`},
+  fallback:`Passive = be + past participle. After "have been", use the V3 form of "send".`,
+  why:`Present perfect passive: have been + past participle ("sent" is the participle of "send").`},
+ {topic:'s6',type:'tf',instr:`Is the statement true or false?`,q:`"The report will be finish tomorrow" is correct.`,answer:false,
+  why:`The passive needs the past participle. After "will be", the verb must be "finished", not the base form "finish".`,
+  fix:`The report will be **finished** tomorrow.`},
+
+ /* word forms */
+ {topic:'s7',type:'mc',instr:`Choose the best answer.`,q:`Please read the instructions ___ before you start.`,opts:[
+  {t:`careful`,why:`"Careful" is an adjective. It cannot describe the verb "read". We need an adverb.`},
+  {t:`carefully`,ok:true,why:`Correct. An adverb (-ly) describes how you read.`},
+  {t:`care`,why:`"Care" is a noun or a verb. Neither can describe the action "read" here.`},
+  {t:`carefulness`,why:`"Carefulness" is a noun. A noun cannot describe a verb.`}]},
+ {topic:'s7',type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`The company offers`,why:`The subject and verb are correct.`},
+  {t:`a wide selection of`,why:`"Wide" is an adjective before the noun "selection". This is correct.`},
+  {t:`affordably`,bad:true,why:`"Products" is a noun, so the word before it must be an adjective: "affordable". "Affordably" is an adverb.`},
+  {t:`products.`,why:`This noun is correct.`}],
+  fix:`The company offers a wide selection of **affordable** products.`},
+ {topic:'s7',type:'fill',instr:`Type the correct form of the word in brackets.`,q:`The manager praised her ___ (efficient).`,answers:[`efficiency`],
+  wrong:{'efficient':`"Efficient" is an adjective. After "her" we need a noun.`,
+         'efficiently':`"Efficiently" is an adverb. Adverbs do not come after "her".`,
+         'efficiencies':`This is a noun, but the plural does not fit. The sentence talks about one quality.`},
+  fallback:`Look at the word before the blank: "her ___". After "her" we need a noun.`,
+  why:`After "her" we need a noun: "efficiency".`},
+
+ /* ===== extra bank questions ===== */
+
+ /* verb tenses (more) */
+ {topic:'s1',type:'mc',instr:`Choose the best answer.`,q:`She ___ in this city since she was a child.`,opts:[
+  {t:`lives`,why:`Present simple does not show how long. "Since" + a starting point needs present perfect.`},
+  {t:`lived`,why:`Past simple means the action is finished. "Since she was a child" shows that she still lives here now.`},
+  {t:`has lived`,ok:true,why:`Correct. "Since" + a starting point means the action began in the past and continues now: present perfect.`},
+  {t:`will live`,why:`"Will live" is future. "Since she was a child" looks back to the past.`}]},
+ {topic:'s1',type:'mc',instr:`Choose the best answer.`,q:`We ___ our new product next month.`,opts:[
+  {t:`launched`,why:`Past simple is for finished actions. "Next month" is in the future.`},
+  {t:`have launched`,why:`Present perfect connects the past to now. It cannot be used with a future time like "next month".`},
+  {t:`will launch`,ok:true,why:`Correct. "Next month" points to the future, so we use future simple.`},
+  {t:`had launched`,why:`Past perfect is for an action before another past action. There is no past action here.`}]},
+ {topic:'s1',type:'fill',instr:`Type the correct form of the verb in brackets. You will need two words.`,q:`At 8 p.m. yesterday, I ___ (watch) a film.`,answers:[`was watching`],
+  wrong:{'watched':`"Watched" shows a finished action. "At 8 p.m." shows the action was in progress at that moment, so use past continuous.`,
+         'watch':`"Watch" is a present form. "Yesterday" shows that the time is past.`,
+         'am watching':`Present continuous is for now. "Yesterday" is in the past.`,
+         'have watched':`Present perfect cannot be used with a finished time like "yesterday".`,
+         'was watch':`After "was", the verb needs -ing: "was watching".`},
+  fallback:`"At 8 p.m. yesterday" is one moment in the past, and the action was in progress then. Use past continuous: was/were + V-ing.`,
+  why:`"At 8 p.m. yesterday" points to an action in progress at one past moment: past continuous.`},
+ {topic:'s1',type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`When I`,why:`The clause starts correctly.`},
+  {t:`will arrive`,bad:true,why:`After "when", we use present simple even for the future. Use "arrive".`},
+  {t:`at the airport,`,why:`This place phrase is correct.`},
+  {t:`I will call you.`,why:`The main clause uses "will" for the future. This is correct.`}],
+  fix:`When I **arrive** at the airport, I will call you.`},
+ {topic:'s1',type:'tf',instr:`Is the statement true or false?`,q:`"I have worked here since three years" is correct English.`,answer:false,
+  why:`"Since" is used with a starting point (since 2021, since Monday). For a length of time, we use "for": "for three years".`,
+  fix:`I have worked here **for** three years. / I have worked here **since** 2023.`},
+
+ /* subject and verb agreement (more) */
+ {topic:'s2',type:'mc',instr:`Choose the best answer.`,q:`Everyone in the department ___ invited to the party.`,opts:[
+  {t:`are`,why:`"Everyone" is singular, even though it means many people. It needs a singular verb.`},
+  {t:`is`,ok:true,why:`Correct. "Everyone" is singular, so we use "is".`},
+  {t:`were`,why:`"Were" is plural. "Everyone" takes a singular verb.`},
+  {t:`have been`,why:`"Have been" is plural. A singular subject needs "has been" or "is".`}]},
+ {topic:'s2',type:'mc',instr:`Choose the best answer.`,q:`Most of the employees ___ satisfied with the new schedule.`,opts:[
+  {t:`is`,why:`After "most of", the verb agrees with the noun after "of": "employees" is plural, so "is" is wrong.`},
+  {t:`are`,ok:true,why:`Correct. The noun after "of" is "employees" (plural), so we use "are".`},
+  {t:`has been`,why:`"Has been" is singular. It does not match the plural noun "employees".`},
+  {t:`was`,why:`"Was" is singular. It does not match the plural noun "employees".`}]},
+ {topic:'s2',type:'fill',instr:`Type the correct form of the verb in brackets.`,q:`Ten miles ___ (be) a long distance to walk.`,answers:[`is`],
+  wrong:{'are':`A distance is one amount, so it takes a singular verb, even when the number is plural.`,
+         'be':`The verb must agree with the subject. Use "is".`,
+         'were':`"Were" is plural and past. The sentence is in the present, and a distance is one amount.`},
+  fallback:`Amounts of money, time and distance are treated as one amount, so they take a singular verb.`,
+  why:`An amount of distance is one amount, so it is singular: "Ten miles is a long distance."`},
+ {topic:'s2',type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`Both of the managers`,why:`"Both" is always plural. The subject is fine.`},
+  {t:`is attending`,bad:true,why:`"Both" is plural, so the verb must be plural: "are attending".`},
+  {t:`the training session`,why:`This is the object. It is correct.`},
+  {t:`this afternoon.`,why:`This time phrase is correct.`}],
+  fix:`Both of the managers **are attending** the training session this afternoon.`},
+ {topic:'s2',type:'tf',instr:`Is the statement true or false?`,q:`"Physics are my favorite subject" is correct English.`,answer:false,
+  why:`"Physics" ends in -s, but it is the name of one subject, so it takes a singular verb.`,
+  fix:`Physics **is** my favorite subject.`},
+
+ /* gerunds and infinitives (more) */
+ {topic:'s3',type:'mc',instr:`Choose the best answer.`,q:`He agreed ___ the contract before Monday.`,opts:[
+  {t:`signing`,why:`"Agree" is followed by to + verb, not V-ing.`},
+  {t:`to sign`,ok:true,why:`Correct. "Agree" is followed by to + verb.`},
+  {t:`sign`,why:`The base verb needs "to" after "agree".`},
+  {t:`signed`,why:`A past form cannot follow "agree". Use to + verb.`}]},
+ {topic:'s3',type:'mc',instr:`Choose the best answer.`,q:`The company allows employees ___ from home on Fridays.`,opts:[
+  {t:`working`,why:`"Allow + person" is followed by to + verb, not V-ing.`},
+  {t:`to work`,ok:true,why:`Correct. The pattern is allow + person + to + verb.`},
+  {t:`work`,why:`The base verb needs "to" after "allow + person".`},
+  {t:`worked`,why:`A past form cannot follow "allow + person". Use to + verb.`}]},
+ {topic:'s3',type:'fill',instr:`Type the correct form of the verb in brackets.`,q:`She avoided ___ (talk) about the problem.`,answers:[`talking`],
+  wrong:{'to talk':`"Avoid" is followed by V-ing, not to + verb.`,
+         'talk':`After "avoided" we need a V-ing form, not the base verb.`,
+         'talked':`A past form cannot follow "avoid". Use V-ing.`},
+  fallback:`"Avoid" belongs to the group of verbs followed by V-ing (enjoy, consider, suggest, finish).`,
+  why:`"Avoid" is followed by V-ing: "avoided talking".`},
+ {topic:'s3',type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`She`,why:`The subject is correct.`},
+  {t:`enjoys`,why:`"Enjoys" is the right verb and form. The problem is the form after it.`},
+  {t:`to work`,bad:true,why:`"Enjoy" is followed by V-ing, not to + verb. Use "working".`},
+  {t:`with international clients.`,why:`This phrase is correct.`}],
+  fix:`She enjoys **working** with international clients.`},
+ {topic:'s3',type:'tf',instr:`Is the statement true or false?`,q:`"He stopped to smoke" means he quit smoking.`,answer:false,
+  why:`"Stop to smoke" means he paused in order to smoke. To say that he quit, we say "stop smoking".`,
+  fix:`He stopped **smoking**. (He quit.)`},
+
+ /* modal verbs (more) */
+ {topic:'s4',type:'mc',instr:`Choose the best answer.`,q:`You ___ wear a uniform, but you can if you want to.`,opts:[
+  {t:`must`,why:`"Must" shows a strong obligation. The sentence says it is your choice.`},
+  {t:`don't have to`,ok:true,why:`Correct. "Don't have to" means it is not necessary, so it is your choice.`},
+  {t:`must not`,why:`"Must not" means it is forbidden. That contradicts "you can if you want to".`},
+  {t:`can't`,why:`"Can't" means you are not allowed. That also contradicts the rest of the sentence.`}]},
+ {topic:'s4',type:'mc',instr:`Choose the best answer.`,q:`She ___ drive when she was ten years old.`,opts:[
+  {t:`could`,ok:true,why:`Correct. "Could" is the past form of "can" for ability. (In a negative form: "could not".)`},
+  {t:`can`,why:`"Can" is a present form. "When she was ten" is in the past.`},
+  {t:`must`,why:`"Must" shows obligation, not ability.`},
+  {t:`should`,why:`"Should" gives advice. It does not describe ability.`}]},
+ {topic:'s4',type:'fill',instr:`Type the correct form of the verb in brackets.`,q:`She should ___ (take) a short break.`,answers:[`take`],
+  wrong:{'to take':`Do not use "to" after a modal verb. Use the base verb.`,
+         'taking':`Do not add -ing after a modal verb. Use the base verb.`,
+         'takes':`The verb after a modal never takes -s, even with "she".`,
+         'took':`Do not use a past form after a modal verb. Use the base verb.`},
+  fallback:`After a modal verb (should, can, must…), use the base verb with nothing added.`,
+  why:`Modal + base verb: "should take".`},
+ {topic:'s4',type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`Our manager`,why:`The subject is correct.`},
+  {t:`can speaks`,bad:true,why:`A modal verb is followed by the base verb. Never add -s after "can": "can speak".`},
+  {t:`English, French`,why:`These are the objects of the verb. They are correct.`},
+  {t:`and Spanish.`,why:`The end of the list is correct.`}],
+  fix:`Our manager **can speak** English, French and Spanish.`},
+ {topic:'s4',type:'tf',instr:`Is the statement true or false?`,q:`A modal verb such as "can" or "must" is followed by to + verb.`,answer:false,
+  why:`A modal verb is followed by the base verb with no "to": "can swim", "must leave".`,
+  fix:`She can **swim**. / You must **leave**.`},
+
+ /* if sentences (more) */
+ {topic:'s5',type:'mc',instr:`Choose the best answer.`,q:`If we ___ the order today, it will arrive on Friday.`,opts:[
+  {t:`will place`,why:`Never use "will" directly after "if".`},
+  {t:`place`,ok:true,why:`Correct. Type 1: if + present simple, will + base verb.`},
+  {t:`placed`,why:`Past simple in the if-part makes an imaginary situation (Type 2). This sentence has "will", so it is a real possibility.`},
+  {t:`would place`,why:`"Would" belongs in the result part of an imaginary sentence, not in the if-part.`}]},
+ {topic:'s5',type:'mc',instr:`Choose the best answer.`,q:`If I had more time, I ___ learn Japanese.`,opts:[
+  {t:`will`,why:`"Will" is for real future possibilities. "If I had" is imaginary, so the result needs "would".`},
+  {t:`would`,ok:true,why:`Correct. Type 2: if + past simple, would + base verb.`},
+  {t:`would have`,why:`"Would have" must be followed by a past participle (would have learned), and that is Type 3. Here we need "would" + base verb.`},
+  {t:`had`,why:`"Had learn" is not a correct form. The result part needs "would" + base verb.`}]},
+ {topic:'s5',type:'fill',instr:`Type the correct form of the verb in brackets.`,q:`If you ___ (heat) ice, it melts.`,answers:[`heat`],
+  wrong:{'will heat':`This is a general truth (zero conditional). Both parts use present simple, with no "will".`,
+         'heated':`Past simple would make an imaginary sentence. A general fact uses present simple.`,
+         'heats':`With "you", the present simple verb has no -s. Use "heat".`,
+         'would heat':`"Would" is for imaginary situations. A general fact uses present simple.`},
+  fallback:`This is a general truth. Zero conditional: if + present simple, present simple.`,
+  why:`Zero conditional (general truth): if + present simple, present simple.`},
+ {topic:'s5',type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`If she`,why:`The if-clause starts correctly.`},
+  {t:`has`,bad:true,why:`The result uses "would buy", so the situation is imaginary (Type 2). The if-part needs past simple: "had".`},
+  {t:`more money,`,why:`This is the object, followed by a comma. It is fine.`},
+  {t:`she would buy a new car.`,why:`The result part uses "would" + base verb. This is correct for Type 2.`}],
+  fix:`If she **had** more money, she would buy a new car.`},
+ {topic:'s5',type:'tf',instr:`Is the statement true or false?`,q:`"If I would have known, I would have called" is correct English.`,answer:false,
+  why:`The if-part never takes "would". For an imaginary past, the if-part uses "had + past participle".`,
+  fix:`If I **had known**, I would have called.`},
+
+ /* passive voice (more) */
+ {topic:'s6',type:'mc',instr:`Choose the best answer.`,q:`The application form ___ completed in black ink.`,opts:[
+  {t:`must be`,ok:true,why:`Correct. Modal passive: modal + be + past participle.`},
+  {t:`must`,why:`A passive sentence needs "be" + past participle. "Must completed" is not a correct form.`},
+  {t:`must been`,why:`After a modal verb, use "be", not "been". "Been" needs "have" in front of it.`},
+  {t:`must have`,why:`"Must have completed" is active. The form cannot complete itself.`}]},
+ {topic:'s6',type:'mc',instr:`Choose the best answer.`,q:`Dinner ___ at 7 p.m. every evening.`,opts:[
+  {t:`serves`,why:`This is active. Dinner does not serve things. People serve dinner.`},
+  {t:`is served`,ok:true,why:`Correct. Present simple passive with a singular subject: is + past participle.`},
+  {t:`serving`,why:`"Serving" alone is not a complete verb. A passive sentence needs be + past participle.`},
+  {t:`are served`,why:`"Dinner" is singular, so we need "is", not "are".`}]},
+ {topic:'s6',type:'fill',instr:`Type the correct form of the verb in brackets.`,q:`The report was ___ (write) by the finance team.`,answers:[`written`],
+  wrong:{'wrote':`"Wrote" is past simple. After "was" in a passive sentence, we need the past participle: "written".`,
+         'write':`In a passive sentence, the verb after "was" must be the past participle, not the base verb.`,
+         'writing':`"Was writing" is active and continuous. Passive needs the past participle: "written".`,
+         'writed':`"Write" is irregular: write, wrote, written. There is no word "writed".`},
+  fallback:`Passive = be + past participle. The participle of "write" is irregular: write, wrote, written.`,
+  why:`Past simple passive: was + past participle ("written").`},
+ {topic:'s6',type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`The new rules`,why:`The subject is correct. The rules receive the action.`},
+  {t:`have been`,why:`"Have been" matches the plural subject "rules". This is correct.`},
+  {t:`announce`,bad:true,why:`After "have been", we need the past participle: "announced".`},
+  {t:`by the CEO this morning.`,why:`"By + the doer" is the normal way to show who did the action.`}],
+  fix:`The new rules have been **announced** by the CEO this morning.`},
+ {topic:'s6',type:'tf',instr:`Is the statement true or false?`,q:`In "The emails were sent by Anna," the emails are the people who did the action.`,answer:false,
+  why:`In a passive sentence, the subject receives the action. Anna did the action (she sent the emails), and the emails received it.`},
+
+ /* word forms (more) */
+ {topic:'s7',type:'mc',instr:`Choose the best answer.`,q:`The new manager is very ___.`,opts:[
+  {t:`help`,why:`"Help" is a verb or noun. After "is very" we need an adjective.`},
+  {t:`helpful`,ok:true,why:`Correct. After "be" + very, we use an adjective. -ful is an adjective ending.`},
+  {t:`helpfully`,why:`"Helpfully" is an adverb. After "is", we describe the subject with an adjective.`},
+  {t:`helpfulness`,why:`"Helpfulness" is a noun. After "is very", we need an adjective.`}]},
+ {topic:'s7',type:'mc',instr:`Choose the best answer.`,q:`We need a more ___ way to organize the files.`,opts:[
+  {t:`efficient`,ok:true,why:`Correct. Before the noun "way", we use an adjective.`},
+  {t:`efficiently`,why:`"Efficiently" is an adverb. Adverbs do not describe nouns, and the blank comes before the noun "way".`},
+  {t:`efficiency`,why:`"Efficiency" is a noun. Before the noun "way" we need an adjective.`},
+  {t:`efficiencies`,why:`This is a plural noun. We need an adjective before "way".`}]},
+ {topic:'s7',type:'fill',instr:`Type the correct form of the word in brackets.`,q:`The new machine works ___ (quick).`,answers:[`quickly`],
+  wrong:{'quick':`"Quick" is an adjective. It cannot describe the verb "works". We need an adverb.`,
+         'quicker':`"Quicker" is still an adjective (a comparison). To describe the verb "works", we need an adverb.`,
+         'quickness':`"Quickness" is a noun. A noun cannot describe a verb.`},
+  fallback:`The blank comes after the action verb "works". After an action verb, use an adverb.`,
+  why:`After an action verb, we use an adverb: "works quickly".`},
+ {topic:'s7',type:'err',instr:`Find the mistake. Click the part of the sentence that is wrong.`,parts:[
+  {t:`The reception staff`,why:`The subject is correct.`},
+  {t:`were`,why:`"Staff" can be plural here, so "were" is acceptable. The problem is the next word.`},
+  {t:`extreme`,bad:true,why:`A word that describes an adjective ("helpful") must be an adverb: "extremely".`},
+  {t:`helpful.`,why:`"Helpful" is an adjective that describes the staff. This is correct.`}],
+  fix:`The reception staff were **extremely** helpful.`},
+ {topic:'s7',type:'tf',instr:`Is the statement true or false?`,q:`The word "friendly" ends in -ly, so it is always an adverb.`,answer:false,
+  why:`A few words ending in -ly are adjectives, such as "friendly" and "early". Example: "a friendly manager".`,
+  fix:`"Friendly" is an **adjective**: a friendly manager.`}
+]
+
+};
+
+/* The final test draws 21 questions (three per topic) from this larger bank. */
+var POOL8=QUIZ.s8.slice();
+QUIZ.s8=POOL8.slice(0,21);
+var seenFinal=new Set();
+function drawFinal(){
+  var picks=[];
+  Object.keys(TOPICS).forEach(function(t){
+    var all=POOL8.filter(function(q){return q.topic===t});
+    var fresh=shuffle(all.filter(function(q){return !seenFinal.has(q)}));
+    var chosen=fresh.slice(0,3);
+    if(chosen.length<3){
+      all.forEach(function(q){seenFinal.delete(q)});
+      var more=shuffle(all.filter(function(q){return chosen.indexOf(q)<0}));
+      chosen=chosen.concat(more.slice(0,3-chosen.length));
+    }
+    chosen.forEach(function(q){seenFinal.add(q)});
+    picks=picks.concat(chosen);
+  });
+  return shuffle(picks);
+}
+
+var state={};
+function $(s,r){return (r||document).querySelector(s)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function rich(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')}
+function el(tag,props){
+  var e=document.createElement(tag);
+  props=props||{};
+  Object.keys(props).forEach(function(k){
+    var v=props[k];
+    if(k==='class')e.className=v;
+    else if(k==='html')e.innerHTML=v;
+    else if(k.indexOf('on')===0)e.addEventListener(k.slice(2),v);
+    else e.setAttribute(k,v);
+  });
+  for(var i=2;i<arguments.length;i++){
+    var kid=arguments[i];
+    if(Array.isArray(kid)){kid.forEach(function(x){if(x!=null)e.append(x.nodeType?x:document.createTextNode(x))});}
+    else if(kid!=null){e.append(kid.nodeType?kid:document.createTextNode(kid));}
+  }
+  return e;
+}
+function shuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t}return b}
+function norm(s){return String(s).toLowerCase().replace(/[.,!?;:"]+$/g,'').replace(/\s+/g,' ').trim()}
+var LET='ABCD';
+
+function record(id,i,ok){
+  var k=id+'-'+i;
+  if(!state[k]){state[k]={answered:true,correct:!!ok};updateScore();if(id==='s8')renderResults();}
+}
+
+function renderResults(){
+  var box=$('#s8res');
+  if(!box)return;
+  var n=QUIZ.s8.length,ans=0,cor=0,by={};
+  Object.keys(TOPICS).forEach(function(t){by[t]={c:0,n:0}});
+  QUIZ.s8.forEach(function(q,i){
+    by[q.topic].n++;
+    var s=state['s8-'+i];
+    if(s){ans++;if(s.correct){cor++;by[q.topic].c++;}}
+  });
+  if(ans===0){box.hidden=true;return;}
+  box.hidden=false;
+  if(ans<n){
+    box.innerHTML='<h4>Your results</h4><p>Answer all '+n+' questions to see your score for each topic. '+(n-ans)+' left.</p>';
+    return;
+  }
+  var pct=cor/n;
+  var msg=pct>=0.9?'Excellent work. You are ready for these topics on the TOEIC.':
+          pct>=0.7?'Good work. Review the topics below that are not marked as all correct, then retake the test.':
+          'Keep practicing. Read the lessons for the topics below, then retake the test.';
+  var html='<h4>Your result: '+cor+' out of '+n+'</h4><p>'+msg+'</p><ul>';
+  Object.keys(TOPICS).forEach(function(t){
+    var r=by[t];
+    html+='<li><span>'+esc(TOPICS[t])+': '+r.c+' of '+r.n+'</span>'+
+      (r.c===r.n?'<span class="full"><span aria-hidden="true">✓ </span>All correct</span>':'<a href="#'+t+'">Review this lesson</a>')+'</li>';
+  });
+  html+='</ul>';
+  box.innerHTML=html;
+}
+
+function updateScore(){
+  var tot=0,ans=0,cor=0;
+  SECTIONS.forEach(function(id){
+    var sa=0,sc=0;
+    QUIZ[id].forEach(function(q,i){
+      tot++;
+      var s=state[id+'-'+i];
+      if(s){ans++;sa++;if(s.correct){cor++;sc++;}}
+    });
+    var c=$('[data-cnt="'+id+'"]');if(c)c.textContent=sc+'/'+QUIZ[id].length;
+    var ss=$('#'+id+' .secscore');if(ss)ss.textContent=sc+' correct out of '+QUIZ[id].length+' ('+sa+' answered)';
+  });
+  $('#scCor').textContent=cor;$('#scAns').textContent=ans;$('#scAll').textContent=tot;
+}
+
+function showFB(fb,ok,title,body,items){
+  fb.className='fb '+(ok?'good':'bad');
+  fb.innerHTML='';
+  fb.append(el('p',{class:'res'},title));
+  if(body)fb.append(el('p',{html:rich(body)}));
+  if(items&&items.length){
+    var ul=el('ul');
+    items.forEach(function(it){
+      var li=el('li',{class:it.good?'y':'n'});
+      li.append(el('span',{class:'mk','aria-hidden':'true'},it.good?'✓':'✗'),
+                el('span',{class:'sr'},it.good?'Correct: ':'Incorrect: '),
+                el('span',{html:it.html}));
+      ul.append(li);
+    });
+    fb.append(ul);
+  }
+  fb.hidden=false;
+}
+function newFB(){var f=el('div',{class:'fb','aria-live':'polite'});f.hidden=true;return f}
+function qtext(i,html){return el('p',{class:'qtext'},el('span',{class:'qno'},(i+1)+'.'),el('span',{html:html}))}
+function instr(t){return el('p',{class:'instr'},t)}
+
+/* multiple choice */
+function qMC(id,q,i,box){
+  var opts=shuffle(q.opts);
+  var group=el('div',{class:'opts',role:'group','aria-label':'Answer choices'});
+  var fb=newFB();
+  var btns=opts.map(function(o,n){
+    var b=el('button',{class:'opt',type:'button'},
+      el('span',{class:'ltr','aria-hidden':'true'},LET[n]),
+      el('span',{html:rich(o.t)}));
+    b.addEventListener('click',function(){
+      record(id,i,!!o.ok);
+      btns.forEach(function(bb,m){
+        bb.disabled=true;
+        if(opts[m].ok)bb.classList.add('correct');
+        else if(m===n)bb.classList.add('wrong');
+      });
+      showFB(fb,!!o.ok,o.ok?'Correct!':'Not quite.','Why each answer is right or wrong:',
+        opts.map(function(x,m){
+          return {good:!!x.ok,html:'<strong>'+rich(x.t)+'</strong>'+(m===n?' <em>(your answer)</em>':'')+' — '+rich(x.why)};
+        }));
+    });
+    group.append(b);
+    return b;
+  });
+  box.append(group,fb);
+}
+
+/* type the answer */
+function qFill(id,q,i,box){
+  var parts=q.q.split('___');
+  var input=el('input',{class:'blank',type:'text',autocomplete:'off',autocapitalize:'off',spellcheck:'false','aria-label':'Type your answer'});
+  box.append(el('p',{class:'qtext'},el('span',{class:'qno'},(i+1)+'.'),el('span',{html:rich(parts[0])}),input,el('span',{html:rich(parts[1]||'')})));
+  box.append(instr(q.instr));
+  var fb=newFB();
+  var check=el('button',{class:'btn',type:'button'},'Check answer');
+  var show=el('button',{class:'btn alt',type:'button'},'Show answer');
+  var locked=false;
+  function lock(){locked=true;input.disabled=true;check.disabled=true;show.disabled=true}
+  function doCheck(){
+    if(locked)return;
+    var raw=input.value.trim();
+    if(!raw){showFB(fb,false,'Type an answer first.','Write your answer in the blank, then press Check answer.');return}
+    var v=norm(raw);
+    var ok=q.answers.some(function(a){return norm(a)===v});
+    record(id,i,ok);
+    if(ok){lock();showFB(fb,true,'Correct!','**'+q.answers[0]+'**. '+q.why);}
+    else{
+      var reason=(q.wrong&&q.wrong[v])||q.fallback;
+      showFB(fb,false,'Not quite.','You typed **'+raw+'**. '+reason+' Try again, or press "Show answer".');
+    }
+  }
+  check.addEventListener('click',doCheck);
+  show.addEventListener('click',function(){
+    if(locked)return;
+    record(id,i,false);lock();
+    showFB(fb,false,'Here is the answer.','The correct answer is **'+q.answers[0]+'**. '+q.why);
+  });
+  input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doCheck();}});
+  box.append(el('div',{class:'btnrow'},check,show),fb);
+}
+
+/* find the mistake */
+function qErr(id,q,i,box){
+  box.append(qtext(i,rich(q.instr)));
+  var sent=el('p',{class:'sent'});
+  var fb=newFB();
+  var badIdx=-1;
+  q.parts.forEach(function(p,n){if(p.bad)badIdx=n});
+  var btns=q.parts.map(function(p,n){
+    var b=el('button',{class:'seg',type:'button'},el('sup',{'aria-hidden':'true'},LET[n]),p.t);
+    b.addEventListener('click',function(){
+      var ok=(n===badIdx);
+      record(id,i,ok);
+      btns.forEach(function(bb,m){
+        bb.disabled=true;
+        if(m===badIdx)bb.classList.add('found');
+        else if(m===n)bb.classList.add('wrong');
+      });
+      showFB(fb,ok,ok?'Correct! You found the mistake.':'Not quite. The mistake is in part '+LET[badIdx]+'.',
+        'Correct sentence: '+q.fix,
+        q.parts.map(function(x,m){
+          return {good:!x.bad,html:'<strong>'+rich(x.t)+'</strong>'+(m===n?' <em>(your answer)</em>':'')+(x.bad?' is the mistake. ':' is correct. ')+rich(x.why)};
+        }));
+    });
+    sent.append(b,' ');
+    return b;
+  });
+  box.append(sent,fb);
+}
+
+/* true or false */
+function qTF(id,q,i,box){
+  box.append(qtext(i,rich(q.q)),instr(q.instr));
+  var fb=newFB();
+  var group=el('div',{class:'opts tfrow',role:'group','aria-label':'True or false'});
+  var objs=[{val:true,label:'True'},{val:false,label:'False'}];
+  objs.forEach(function(o){
+    o.b=el('button',{class:'opt tf',type:'button'},o.label);
+    o.b.addEventListener('click',function(){
+      var ok=(o.val===q.answer);
+      record(id,i,ok);
+      objs.forEach(function(x){
+        x.b.disabled=true;
+        if(x.val===q.answer)x.b.classList.add('correct');
+        else if(x.val===o.val)x.b.classList.add('wrong');
+      });
+      showFB(fb,ok,ok?'Correct!':'Not quite.',
+        'This statement is **'+(q.answer?'true':'false')+'**. '+q.why+(q.fix?' Correct version: '+q.fix:''));
+    });
+    group.append(o.b);
+  });
+  box.append(group,fb);
+}
+
+/* match */
+function qMatch(id,q,i,box){
+  box.append(qtext(i,rich(q.instr)));
+  var list=el('div',{class:'mlist'});
+  var fb=newFB();
+  var sels=[],res=[];
+  q.rows.forEach(function(r){
+    var sel=el('select',{'aria-label':'Choose an answer for: '+r.t});
+    sel.append(el('option',{value:''},'Choose…'));
+    q.choices.forEach(function(c){sel.append(el('option',{value:c},c))});
+    var out=el('div',{class:'mres'});out.hidden=true;
+    sels.push(sel);res.push(out);
+    list.append(el('div',{class:'mrow'},el('span',{class:'mlabel',html:rich(r.t)}),sel,out));
+  });
+  var check=el('button',{class:'btn',type:'button'},'Check answers');
+  var note=el('p',{class:'note','aria-live':'polite'});
+  check.addEventListener('click',function(){
+    if(sels.some(function(s){return !s.value})){note.textContent='Choose an answer for every row first.';return}
+    note.textContent='';
+    var right=0;
+    q.rows.forEach(function(r,n){
+      var ok=(sels[n].value===r.a);
+      if(ok)right++;
+      sels[n].disabled=true;
+      sels[n].classList.add(ok?'correct':'wrong');
+      res[n].hidden=false;
+      res[n].className='mres '+(ok?'y':'n');
+      res[n].innerHTML='<span class="mk" aria-hidden="true">'+(ok?'✓':'✗')+'</span><span class="sr">'+(ok?'Correct: ':'Incorrect: ')+'</span>'+
+        (ok?'':'You chose <strong>'+esc(sels[n].value)+'</strong>. The answer is <strong>'+esc(r.a)+'</strong>. ')+rich(r.why);
+    });
+    var all=(right===q.rows.length);
+    record(id,i,all);
+    check.disabled=true;
+    showFB(fb,all,all?'All correct!':right+' of '+q.rows.length+' correct.','Read the explanation under each row to learn from any mistakes.');
+  });
+  box.append(list,el('div',{class:'btnrow'},check),note,fb);
+}
+
+function renderQ(id,q,i){
+  var box=el('div',{class:'q'});
+  if(q.type==='mc'){box.append(qtext(i,rich(q.q)),instr(q.instr));qMC(id,q,i,box);}
+  else if(q.type==='fill'){qFill(id,q,i,box);}
+  else if(q.type==='err'){qErr(id,q,i,box);}
+  else if(q.type==='tf'){qTF(id,q,i,box);}
+  else if(q.type==='match'){qMatch(id,q,i,box);}
+  return box;
+}
+
+function renderQuiz(id){
+  var root=$('#'+id+' .quiz');
+  root.innerHTML='';
+  QUIZ[id].forEach(function(q,i){delete state[id+'-'+i]});
+  var isFinal=(id==='s8');
+  if(isFinal)QUIZ[id]=drawFinal();
+  root.append(el('h3',{},isFinal?'Take the test':'Check yourself'));
+  root.append(el('p',{class:'instr'},isFinal
+    ?QUIZ[id].length+' questions: three from each topic, drawn from a bank of '+POOL8.length+' and mixed together. Each retake gives you a new set. At the end you will see your score for each topic.'
+    :'Seven questions in different styles. Every wrong answer is explained.'));
+  QUIZ[id].forEach(function(q,i){root.append(renderQ(id,q,i))});
+  if(isFinal){var res=el('div',{class:'results',id:'s8res','aria-live':'polite'});res.hidden=true;root.append(res);}
+  root.append(el('div',{class:'qfoot'},
+    el('span',{class:'secscore'}),
+    el('button',{class:'btn alt',type:'button',onclick:function(){
+      renderQuiz(id);
+      if(isFinal){document.getElementById(id).scrollIntoView();}
+    }},isFinal?'Retake with a new set':'Start this quiz again')));
+  updateScore();
+  if(isFinal)renderResults();
+}
+
+SECTIONS.forEach(renderQuiz);
+$('#resetAll').addEventListener('click',function(){
+  SECTIONS.forEach(renderQuiz);
+  window.scrollTo(0,0);
+});
+})();
+</script>
+</body>
+</html>
